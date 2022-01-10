@@ -1,11 +1,18 @@
 * {
   box-sizing: border-box;
-  font-family: Helvetica;
-  color:white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  /* color:white; */
 }
 
 :root {
   --red: #bb4839;
+  --navajo-white: #ffdda1;
+  --old-lace: #F7F3E3;
+  --bleached-almond: #FCECC9;
+  --opal: #CEDFD9;
+  --timber-wolf: #D9DCD6;
+  --gold-crayola: #E6C79C;
+  --background: #555555;
 }
 
 body {
@@ -33,18 +40,50 @@ nav > #logo > img {
   object-fit: contain;
 }
 
+
 body > main {
   grid-area: main;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #555555;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--gold-crayola);
   padding: 20px;
   overflow-y: scroll;
 }
 
+main > div {
+  grid-column: span 2;
+  background-color: var(--background);
+  border-radius: 10px;
+  text-align: center;
+  width: 360px;
+  color: white;
+  place-self: center;
+  margin: 20px;
+}
+
+main > section {
+  grid-column: span 1;
+  justify-self: center;
+  background-color: var(--navajo-white);
+  margin: 20px;
+  display: grid;
+  grid-template-columns: 120px 120px 120px;
+  grid-template-rows: 100px 100px 100px;
+}
+
+.characterText {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.characterImg {
+  grid-column: span 1;
+  grid-row: span 3;
+}
+
 nav > .nav {
   font-family: Garamond;
+  color: white;
   letter-spacing: 1px;
   margin: 10px 7px;
   text-decoration: none;
