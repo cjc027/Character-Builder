@@ -1,11 +1,82 @@
 <%- include('../partials/header') %>
 
-<section>
+<!-- <section>
     <h1>New Character!</h1>
 </section>
 
 <section>
-    <p><%= user %></p>
-</section>
+    <p>user</p>
+</section> -->
+<div>
+    <h2>New Character</h2><br>
+    <form id="new-form" action="/characters" method="POST">
+        <label>Name:</label>
+        <input type="text" name="name">
+        <label>Race:</label>
+        <select name="race">
+            <option value="Human">Human</option>
+            <option value="Dwarf">Dwarf</option>
+            <option value="Elf">Elf</option>
+            <option value="Halfling">Halfling</option>
+            <option value="Dragonborn">Dragonborn</option>
+            <option value="Gnome">Gnome</option>
+            <option value="Half-Elf">Half-Elf</option>
+            <option value="Half-Orc">Half-Orc</option>
+            <option value="Tiefling">Tiefling</option>
+        </select>
+        <label>Subrace:</label>
+        <!-- <input type="text" name="subrace"> -->
+        <select name="subrace">
+            <option value="Empty"></option>
+            <option value="Hill Dwarf">Hill Dwarf</option>
+            <option value="Mountain Dwarf">Mountain Dwarf</option>
+            <option value="Empty"></option>
+
+            <option value="High Elf">High Elf</option>
+            <option value="Wood Elf">Wood Elf</option>
+            <option value="Empty"></option>
+
+            <option value="Lightfoot">Lightfoot</option>
+            <option value="Stout">Stout</option>
+            <option value="Empty"></option>
+
+            <option value="Forest Gnome">Forest Gnome</option>
+            <option value="Rock Gnome">Rock Gnome</option>
+        </select>
+        <label>Class:</label>
+        <select name="class">
+            <option value="Barbarian">Barbarian</option>
+            <option value="Bard">Bard</option>
+            <option value="Cleric">Cleric</option>
+            <option value="Druid">Druid</option>
+            <option value="Fighter">Fighter</option>
+            <option value="Monk">Monk</option>
+            <option value="Paladin">Paladin</option>
+            <option value="Ranger">Ranger</option>
+            <option value="Rogue">Rogue</option>
+            <option value="Sorceror">Sorceror</option>
+            <option value="Warlock">Warlock</option>
+            <option value="Wizard">Wizard</option>
+        </select>
+        <label>Alignment:</label>
+        <select name="alignment">
+          <option value="Lawful Good">Lawful Good</option>
+          <option value="Neutral Good">Neutral Good</option>
+          <option value="Chaotic Good">Chaotic Good</option>
+          <option value="Lawful Neutral">Lawful Neutral</option>
+          <option value="True Neutral">True Neutral</option>
+          <option value="Chaotic Neutral">Chaotic Neutral</option>
+          <option value="Lawful Evil">Lawful Evil</option>
+          <option value="Neutral Evil">Neutral Evil</option>
+          <option value="Chaotic Evil">Chaotic Evil</option>
+        </select>
+        <br>
+        <label class="textArea">Personal Characteristics:</label>
+        <textarea name="characteristics"></textarea>
+        <label class="textArea">Background:</label>
+        <textarea name="background"></textarea>
+        <input type="submit" value="Add Character">
+    </form>
+</div>
 
 <%- include('../partials/footer') %>

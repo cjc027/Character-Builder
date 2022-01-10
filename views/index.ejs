@@ -3,8 +3,13 @@
 <div>
     <h2>D&D Character Builder</h2>
     <p>Build and save basic D&D 5e characters!</p>
-    <p>Login to get started:</p>
-    
+    <% if (user) { %>
+        <p>Welcome back, <%= user.name %>!</p><br>
+        <a href="/characters" class="nav">My Characters</a>
+    <% } else { %>
+        <p>Login to get started:</p><br>
+        <a href="/auth/google" class="nav">Login with Google</a>
+    <% } %>
 </div>
 
 <%- include('partials/footer') %>

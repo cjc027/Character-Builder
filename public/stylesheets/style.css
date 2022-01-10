@@ -56,11 +56,12 @@ main > div {
   border-radius: 10px;
   text-align: center;
   width: 360px;
-  min-height: 200px;
   color: white;
   place-self: center;
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 50px;
   margin: 20px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
 
 main > section {
@@ -83,7 +84,11 @@ main > section {
   grid-row: span 3;
 }
 
-nav > .nav {
+main > div > .nav {
+  background-color: var(--red);
+}
+
+.nav {
   font-family: Garamond;
   color: white;
   letter-spacing: 1px;
@@ -94,15 +99,54 @@ nav > .nav {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-nav > .nav:hover {
+.nav:hover {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), inset 0px 0px 3px rgba(0, 0, 0, 0.5);
 }
 
-nav > .nav:active {
+.nav:active {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), inset 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
-nav > #auth {
+#auth {
   margin-left:auto;
   margin-right: 20px;
+}
+
+#new-form {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+
+#new-form > textarea {
+  grid-column: span 2;
+  width: 80%;
+  height: 100px;
+  resize: vertical;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#new-form > input, select {
+  width: 80%;
+}
+
+#new-form > .textArea {
+  grid-column: span 2;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#new-form > input[type="submit"] {
+  grid-column: span 2;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  background-color: var(--red);
+  color: white;
+  font-size: 15px;
+  margin-top: 15px;
+  margin-bottom: -15px;
+  padding: 5px;
 }
