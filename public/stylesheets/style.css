@@ -4,11 +4,15 @@
   color:white;
 }
 
+:root {
+  --red: #bb4839;
+}
+
 body {
   margin: 0;
   height: 100vh;
   display: grid;
-  grid-template-rows: 50px 1fr;
+  grid-template-rows: 60px 1fr;
   grid-template-areas:
     "nav"
     "main"
@@ -16,7 +20,7 @@ body {
 
 body > nav {
   grid-area: nav;
-  background-color: #e44d4d;
+  background-color: var(--red);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -27,7 +31,6 @@ nav > #logo > img {
   margin: 0 10px;
   width: 34px;
   object-fit: contain;
-  /* margin-left: auto; */
 }
 
 body > main {
@@ -45,7 +48,7 @@ nav > .nav {
   letter-spacing: 1px;
   margin: 10px 7px;
   text-decoration: none;
-  padding: 7px 15px;
+  padding: 10px 15px;
   border-radius: 5px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
