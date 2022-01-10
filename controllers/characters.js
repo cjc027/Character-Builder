@@ -2,7 +2,8 @@ const Character = require('../models/character');
 
 module.exports = {
     index,
-    new: newCharacter
+    new: newCharacter,
+    create
 }
 
 function index(req, res){
@@ -26,4 +27,8 @@ function newCharacter(req, res){
     } else {
         res.redirect('/');
     }
+}
+
+function create(req, res){
+    console.log(req.body);
 }
