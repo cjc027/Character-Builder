@@ -56,8 +56,10 @@ main > div {
   border-radius: 10px;
   text-align: center;
   width: 360px;
+  min-height: 200px;
   color: white;
   place-self: center;
+  padding: 10px;
   margin: 20px;
 }
 

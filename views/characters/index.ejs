@@ -6,15 +6,17 @@
         <section>
             <div class="characterImg"></div>
             <div class="characterText"><b>Name:</b></div>
-            <div class="characterText"><b>Class:</b></div>
-            <div class="characterText"><b>Race:</b></div>
             <div class="characterText"><%=char.name%></div>
+            <div class="characterText"><b>Class:</b></div>
             <div class="characterText"><%=char.class%></div>
+            <div class="characterText"><b>Race:</b></div>
             <div class="characterText"><%=char.race%></div>
         </section>
     <% }) %>
 <% } else { %>
-    <p>Empty</p>
+    <div>
+        Empty!
+    </div>
 <% } %>
 
 <%- include('../partials/footer') %>
