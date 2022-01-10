@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
   font-family: Helvetica;
-  color:antiquewhite;
+  color:white;
 }
 
 body {
@@ -20,10 +20,11 @@ body > nav {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 0 20px 0 30px;
+  padding: 0 10px 0 10px;
 }
 
-nav > img {
+nav > #logo > img {
+  margin: 0 10px;
   width: 34px;
   object-fit: contain;
   /* margin-left: auto; */
@@ -39,20 +40,25 @@ body > main {
   overflow-y: scroll;
 }
 
-nav > a {
+nav > .nav {
+  font-family: Garamond;
+  letter-spacing: 1px;
   margin: 10px 7px;
   text-decoration: none;
   padding: 7px 15px;
   border-radius: 5px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-  /* background-color: #424748; */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-nav > a:hover {
-  color: white;
-  background-color: #424748;
+nav > .nav:hover {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), inset 0px 0px 3px rgba(0, 0, 0, 0.5);
 }
 
-/* nav > a.active {
-  color: white;
-} */
+nav > .nav:active {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+nav > #auth {
+  margin-left:auto;
+  margin-right: 20px;
+}

@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-  <title><%= title %></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>
+        <%= title %>
+    </title>
 </head>
+
 <body>
-  <nav>
-    <img src="/images/?">
-    <a href="?">
-        CHARACTERS
-    </a>
-    <a href="?">
-        +
-    </a>
-  </nav>
-  <main>
+    <nav>
+        <a href="/" id="logo">
+            <img src="/images/hammer-left.png">
+        </a>
+        <a href="?" class="nav">
+            CHARACTERS
+        </a>
+        <a href="?" class="nav">
+            +
+        </a>
+        <% if (user) { %>
+            <a href="/logout" class="nav" id="auth">Log Out</a>
+        <% } else { %>
+            <a href="/auth/google" class="nav" id="auth"> Login with Google</a>
+        <% } %>    
+    </nav>
+    <main>
