@@ -1,20 +1,58 @@
-.brand-logo {
-  margin-left: 15px;
+* {
+  box-sizing: border-box;
+  font-family: Helvetica;
+  color:antiquewhite;
 }
 
-.card .card-content .card-title {
-  margin-bottom: 10px;
+body {
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas:
+    "nav"
+    "main"
 }
 
-#search-row form {
-  padding-top: 20px;
+body > nav {
+  grid-area: nav;
+  background-color: #e44d4d;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 20px 0 30px;
 }
 
-.student-name {
-  position: relative;
-  top: -5px;
+nav > img {
+  width: 34px;
+  object-fit: contain;
+  /* margin-left: auto; */
 }
 
-.collection-item form {
-  margin-top: -5px;
+body > main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #555555;
+  padding: 20px;
+  overflow-y: scroll;
 }
+
+nav > a {
+  margin: 10px 7px;
+  text-decoration: none;
+  padding: 7px 15px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  /* background-color: #424748; */
+}
+
+nav > a:hover {
+  color: white;
+  background-color: #424748;
+}
+
+/* nav > a.active {
+  color: white;
+} */
