@@ -3,14 +3,22 @@
 
 <% if (characters.length > 0) { %>
     <% characters.forEach(function(char){ %>
-        <section>
-            <div class="characterImg"></div>
-            <div class="characterText"><b>Name:</b></div>
-            <div class="characterText"><%=char.name%></div>
-            <div class="characterText"><b>Class:</b></div>
-            <div class="characterText"><%=char.class%></div>
-            <div class="characterText"><b>Race:</b></div>
-            <div class="characterText"><%=char.race%></div>
+        <section class='card'>
+            <img class="characterImg" src="/images/hammer-left.png">
+            <table class="characterText">
+                <tr>
+                    <td><b>Name:</b></td>
+                    <td class='data'><%=char.name%></td>
+                </tr>
+                <tr>
+                    <td><b>Race:</b></td>
+                    <td class='data'><%=char.race%></td>
+                </tr>
+                <tr>
+                    <td><b>Class:</b></td>
+                    <td class='data'><%=char.class%></td>
+                </tr>
+            </table>
         </section>
     <% }) %>
 <% } else { %>

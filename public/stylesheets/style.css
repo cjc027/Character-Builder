@@ -55,7 +55,6 @@ main > div {
   background-color: var(--background);
   border-radius: 10px;
   text-align: center;
-  width: 360px;
   color: white;
   place-self: center;
   padding-top: 10px;
@@ -64,22 +63,55 @@ main > div {
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
 
-main > section {
+main > .card {
   grid-column: span 1;
-  justify-self: center;
-  background-color: var(--navajo-white);
-  margin: 20px;
+  background-color: var(--background);
+  border-radius: 10px;
+  color: white;
+  place-self: center;
+  width: 360px;
+  height: 200px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
   display: grid;
-  grid-template-columns: 120px 120px 120px;
-  grid-template-rows: 100px 100px 100px;
+  grid-template-columns: 1fr 1fr;
 }
 
-.characterText {
-  grid-column: span 1;
+main > .card:hover {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+main > .card:active {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5), inset 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+tr {
+  text-align: end;
+}
+
+td {
+  /* padding-right: 20px; */
+  padding-top: 10px;
+}
+
+.data {
+  padding-left: 10px;
+  text-align: justify;
+}
+
+.card > .characterText {
+  place-self: center;
+  padding-top: 20px;
+  padding-right: 40px;
+  grid-column: 2 / span 1;
   grid-row: span 1;
 }
 
-.characterImg {
+.card > .characterImg {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  object-fit: contain;
+  width: 68px;
   grid-column: span 1;
   grid-row: span 3;
 }
