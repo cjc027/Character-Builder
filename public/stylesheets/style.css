@@ -44,15 +44,15 @@ nav > #logo > img {
 body > main {
   grid-area: main;
   display: grid;
-  row-gap: 30px;
-  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   background-color: var(--gold-crayola);
-  padding: 20px;
+  padding: 20px 25%;
   overflow-y: scroll;
 }
 
 main > div {
-  grid-column: span 3;
+  grid-column: span 4;
   background-color: var(--background);
   border-radius: 10px;
   text-align: center;
@@ -66,13 +66,25 @@ main > div {
 }
 
 main > .card {
-  grid-column: span 3;
+  grid-column: span 2;
   background-color: var(--background);
   border-radius: 10px;
   color: white;
   place-self: center;
   width: 400px;
-  height: 200px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.profile {
+  grid-column: span 2;
+  background-color: var(--background);
+  border-radius: 10px;
+  color: white;
+  justify-self: center;
+  align-self: start;
+  /* width: 400px; */
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -91,16 +103,15 @@ tr {
 }
 
 td {
-  /* padding-right: 20px; */
-  padding-top: 10px;
+  padding-top: 5px;
 }
 
 .data {
-  padding-left: 10px;
+  padding-left: 5px;
   text-align: justify;
 }
 
-.card > .characterText {
+.characterText {
   align-self: center;
   padding-top: 35px;
   padding-right: 10px;
@@ -110,10 +121,28 @@ td {
   grid-row: span 1;
 }
 
-.card > .characterImg {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 35px;
+.profileText {
+  align-self: center;
+  padding-top: 35px;
+  padding-right: 30px;
+  margin: auto;
+  margin-left: -30px;
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.profileImg {
+  margin: 25px auto;
+  margin-left: 40px;
+  border-radius: 5px;
+  object-fit: contain;
+  width: 100px;
+  grid-column: span 1;
+  grid-row: span 3;
+}
+
+.characterImg {
+  margin: 25px auto;
   border-radius: 5px;
   object-fit: contain;
   width: 100px;
@@ -188,7 +217,11 @@ main > div > .nav {
   padding: 5px;
 }
 
-#newCharacter {
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   width: 80%;
   text-decoration: none;
   margin-left: auto;
@@ -199,14 +232,15 @@ main > div > .nav {
   font-size: 15px;
   margin-top: 15px;
   margin-bottom: -15px;
+  max-height: 35px;
   padding: 5px 15px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-#newCharacter:hover {
+.button:hover {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), inset 0px 0px 3px rgba(0, 0, 0, 0.5);
 }
 
-#newCharacter:active {
+.button:active {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), inset 0px 0px 10px rgba(0, 0, 0, 0.5);
 }

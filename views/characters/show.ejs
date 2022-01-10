@@ -1,5 +1,48 @@
 <%- include('../partials/header') %>
 
+<a href="?" class="button">Edit Character</a>
+<a href="?" class="button">Add Ability Scores</a>
+<a href="?" class="button">Add Equipment</a>
+<a href="?" class="button">Delete Character</a>
 
+<section class="profile">
+    <img class="profileImg" src="/images/TCP Armored 3.jpg">
+    <table class="profileText">
+        <tr>
+            <td><b>Name:</b></td>
+            <td class='data'><%=character.name%></td>
+        </tr>
+        <tr>
+            <td><b>Race:</b></td>
+            <td class='data'><%=character.race%></td>
+        </tr>
+        <% if (character.subrace) { %>
+            <tr>
+                <td><b>Subrace:</b></td>
+                <td class='data'><%=character.subrace%></td>
+            </tr>
+        <% } %>
+        <tr>
+            <td><b>Class:</b></td>
+            <td class='data'><%=character.class%></td>
+        </tr>
+        <tr>
+            <td><b>Alignment:</b></td>
+            <td class='data'><%=character.alignment%></td>
+        </tr>
+    </table>
+</section>
+
+<section class="profile">
+    <h3>Ability Scores</h3>    
+</section>
+
+<section class="profile">
+    <h3>Profile</h3>    
+</section>
+
+<section class="profile">
+    <h3>Equipment</h3>    
+</section>
 
 <%- include('../partials/footer') %>
