@@ -44,14 +44,15 @@ nav > #logo > img {
 body > main {
   grid-area: main;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  row-gap: 30px;
+  grid-template-columns: 1fr 1fr 1fr;
   background-color: var(--gold-crayola);
   padding: 20px;
   overflow-y: scroll;
 }
 
 main > div {
-  grid-column: span 2;
+  grid-column: span 3;
   background-color: var(--background);
   border-radius: 10px;
   text-align: center;
@@ -59,17 +60,18 @@ main > div {
   place-self: center;
   padding-top: 10px;
   padding-bottom: 50px;
+  width: 360px;
   margin: 20px;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
 
 main > .card {
-  grid-column: span 1;
+  grid-column: span 3;
   background-color: var(--background);
   border-radius: 10px;
   color: white;
   place-self: center;
-  width: 360px;
+  width: 400px;
   height: 200px;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
   display: grid;
@@ -77,11 +79,11 @@ main > .card {
 }
 
 main > .card:hover {
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 10px rgba(122, 53, 53, 1.0);
 }
 
 main > .card:active {
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5), inset 1px 1px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 10px rgba(122, 53, 53, 1.0), inset 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
 
 tr {
@@ -99,19 +101,22 @@ td {
 }
 
 .card > .characterText {
-  place-self: center;
-  padding-top: 20px;
-  padding-right: 40px;
-  grid-column: 2 / span 1;
+  align-self: center;
+  padding-top: 35px;
+  padding-right: 10px;
+  margin: auto;
+  margin-left: -20px;
+  grid-column: span 1;
   grid-row: span 1;
 }
 
 .card > .characterImg {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50px;
+  margin-top: 35px;
+  border-radius: 5px;
   object-fit: contain;
-  width: 68px;
+  width: 100px;
   grid-column: span 1;
   grid-row: span 3;
 }
@@ -181,4 +186,27 @@ main > div > .nav {
   margin-top: 15px;
   margin-bottom: -15px;
   padding: 5px;
+}
+
+#newCharacter {
+  width: 80%;
+  text-decoration: none;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  background-color: var(--red);
+  color: white;
+  font-size: 15px;
+  margin-top: 15px;
+  margin-bottom: -15px;
+  padding: 5px 15px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+#newCharacter:hover {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), inset 0px 0px 3px rgba(0, 0, 0, 0.5);
+}
+
+#newCharacter:active {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), inset 0px 0px 10px rgba(0, 0, 0, 0.5);
 }

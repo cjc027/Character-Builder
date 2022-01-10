@@ -1,9 +1,11 @@
+const character = require('../models/character');
 const Character = require('../models/character');
 
 module.exports = {
     index,
     new: newCharacter,
-    create
+    create,
+    show
 };
 
 function index(req, res){
@@ -61,4 +63,13 @@ function create(req, res){
         console.log(characterDoc);
         res.redirect(`/characters`);
     });
+}
+
+function show(req, res){
+    Character.findById(req.params.id, function(err, characterDoc){
+        res.render('characters/show', {
+            character: characterDoc,
+            title: characterDoc.name
+        })
+    })
 }
