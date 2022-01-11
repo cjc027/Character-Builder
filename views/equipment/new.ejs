@@ -1,4 +1,26 @@
 <%- include('../partials/header') %>
 
+<div>
+    <h2><%=title%></h2><br>
+    <form class="new-form" action="/characters/<%=character._id%>/equipment" method="POST">
+        <label>Name:</label>
+        <input type="text" name="name" required>
+        
+        <label>Cost:</label>
+        <input type="number" name="cost">
+        <div id="radio">
+            <input type="radio" id="html" name="currency" value="cp">
+            <label for="html">Copper</label><br>
+            <input type="radio" id="css" name="currency" value="sp">
+            <label for="css">Silver</label><br>
+            <input type="radio" id="javascript" name="currency" value="gp">
+            <label for="javascript">Gold</label>
+        </div>
+
+        <label>Weight (lb):</label>
+        <input type="number" name="weight">
+        <input type="submit" value="Add Equipment">
+    </form>
+</div>
 
 <%- include('../partials/footer') %>
