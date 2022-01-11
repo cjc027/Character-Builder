@@ -14,9 +14,16 @@ function newAbilityScores(req, res){
             character: characterDoc
         });
     });
-    
+
 };
 
 function create(req, res){
-    console.log('create is being hit');
+    console.log('create is being hit', req.body, req.params.id);
+
+    Character.findById(req.params.id, function(err, characterDoc){
+        characterDoc.abilityScores.push(req.body);
+        characterDoc.save(function(err){
+            res.redirect(`/characters/${req.params.id}`);
+        });
+    });
 };
