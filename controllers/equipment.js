@@ -5,10 +5,10 @@ module.exports = {
     create
 };
 
-function newEquipment(res, req){
+function newEquipment(req, res){
     console.log('newEquipment is being hit');
 };
 
-function create(res, req){
+function create(req, res){
     console.log('create is being hit');
 };

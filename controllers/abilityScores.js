@@ -5,10 +5,14 @@ module.exports = {
     create
 };
 
-function newAbilityScores(res, req){
-    console.log('newAbilityScores is being hit');
+function newAbilityScores(req, res){
+    console.log('newAbilityScores is being hit', req.params.id);
+    
+    res.render('abilityScores/new', {
+        title: 'Add Ability Scores'
+    });
 };
 
-function create(res, req){
+function create(req, res){
     console.log('create is being hit');
 };
