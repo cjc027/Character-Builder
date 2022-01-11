@@ -23,10 +23,19 @@
         <p>Lightfoot: DEX +2 | CHA +1</p>
     <% } %> 
     <% if (character.subrace === 'Stout') { %>
-        <p>Lightfoot: DEX +2 | CHA +1</p>
+        <p>Stout: DEX +2 | CHA +1</p>
     <% } %> 
     <% if (character.subrace === 'Lightfoot') { %>
         <p>Lightfoot: DEX +2 | CON +1</p>
+    <% } %>
+    <% if (character.subrace === 'Rock Gnome') { %>
+        <p>Rock Gnome: INT +2 | CON +1</p>
+    <% } %>
+    <% if (character.subrace === 'Forest Gnome') { %>
+        <p>Forest Gnome: INT +2 | DEX +1</p>
+    <% } %>
+    <% if (character.race === 'Human') { %>
+        <p>Human: All +1 </p>
     <% } %>
     <% if (character.race === 'Half-Elf') { %>
         <p>Half-Elf: CHA +2 | Two Abilities +1 (Your Choice)</p>
