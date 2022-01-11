@@ -6,7 +6,7 @@
 <!-- <a href="?" class="button">Delete Character</a> -->
 
 <form action="/characters/<%= character._id %>?_method=DELETE" class="button" method="POST">
-    <button type="submit" id="delete">Delete Character</button>
+    <button type="submit" id="delete" onclick="return confirm('Are you sure?')">Delete Character</button>
 </form>
 
 <section class="profile">
