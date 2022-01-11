@@ -21,6 +21,8 @@ require('./config/passport');
 // require routers
 const indexRouter = require('./routes/index');
 const charactersRouter = require('./routes/characters');
+const equipmentRouter = require('./routes/equipment');
+const abilityScoresRouter = require('./routes/abilityScores');
 
 
 // view engine setup
@@ -54,6 +56,8 @@ app.use(function (req, res, next) {
 // mount all routes with appropriate base paths
 app.use('/', indexRouter);
 app.use('/characters', charactersRouter);
+app.use('/', equipmentRouter);
+app.use('/', abilityScoresRouter);
 
 
 // invalid request, send 404 page

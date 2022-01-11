@@ -1,4 +1,3 @@
-const character = require('../models/character');
 const Character = require('../models/character');
 
 module.exports = {
