@@ -20,12 +20,14 @@
             <td><b>Race:</b></td>
             <td class='data'><%=character.race%></td>
         </tr>
-        <% if (character.subrace) { %>
-            <tr>
-                <td><b>Subrace:</b></td>
+        <tr>
+            <td><b>Subrace:</b></td>
+            <% if (character.subrace) { %>
                 <td class='data'><%=character.subrace%></td>
-            </tr>
-        <% } %>
+            <% } else { %>
+                <td class='data'>N/A</td>
+            <% } %>
+        </tr>
         <tr>
             <td><b>Class:</b></td>
             <td class='data'><%=character.class%></td>

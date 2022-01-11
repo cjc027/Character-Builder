@@ -7,7 +7,8 @@ module.exports = {
     create,
     show,
     delete: deleteCharacter,
-    edit
+    edit,
+    update
 };
 
 function index(req, res){
@@ -45,9 +46,9 @@ function create(req, res){
             req.body.subrace = 'Lightfoot'
         } else if (req.body.race === 'Gnome'){
             req.body.subrace = 'Rock Gnome'
+        } else {
+            req.body.subrace = ''
         }
-    } else {
-        req.body.subrace = ''
     };
 
     const newCharacter = {
@@ -89,4 +90,48 @@ function edit(req, res){
             editModule
         })
     })
+}
+
+function update(req, res){
+    console.log('update is being hit');
+    console.log(req.user)
+    // console.log(req.body);
+    if (req.user) {
+        if (req.body.subrace === 'Empty'){
+            if (req.body.race === 'Dwarf'){
+                req.body.subrace = 'Mountain Dwarf'
+            } else if (req.body.race === 'Elf'){
+                req.body.subrace = 'Wood Elf'
+            } else if (req.body.race === 'Halfling'){
+                req.body.subrace = 'Lightfoot'
+            } else if (req.body.race === 'Gnome'){
+                req.body.subrace = 'Rock Gnome'
+            } else {
+                req.body.subrace = ''
+            }
+        };
+    
+        const updatedCharacter = {
+            name: req.body.name,
+            userId: req.user._id,
+            race: req.body.race,
+            subrace: req.body.subrace,
+            class: req.body.class,
+            alignment: req.body.alignment,
+            characteristics: req.body.characteristics,
+            background: req.body.background
+        };
+    
+        
+        Character.updateOne({_id: req.params.id}, updatedCharacter, function(err, characterDoc){
+            console.log(characterDoc, "document!");
+            res.redirect(`/characters/${req.params.id}`);
+        });
+
+
+    } else {
+        res.redirect('/');
+    }
+
+
 }

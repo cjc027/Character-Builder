@@ -9,7 +9,7 @@ router.get('/:id', charactersCtrl.show);
 
 router.delete('/:id', charactersCtrl.delete);
 router.get('/:id/edit', charactersCtrl.edit);
-// router.put('/:id', charactersCtrl.update);
+router.put('/:id', charactersCtrl.update);
 
 
 module.exports = router;
