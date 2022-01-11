@@ -8,9 +8,13 @@ module.exports = {
 function newAbilityScores(req, res){
     console.log('newAbilityScores is being hit', req.params.id);
     
-    res.render('abilityScores/new', {
-        title: 'Add Ability Scores'
+    Character.findById(req.params.id, function(err, characterDoc){
+        res.render('abilityScores/new', {
+            title: 'Add Ability Scores',
+            character: characterDoc
+        });
     });
+    
 };
 
 function create(req, res){

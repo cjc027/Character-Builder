@@ -1,4 +1,22 @@
 <%- include('../partials/header') %>
 
+<div>
+    <h2>Add Ability Scores</h2>
+    <form class="new-form" action='/characters/<%=character._id%>/abilityScores' method="POST">
+        <label>Strength:</label>
+        <input type="number" name="strength" min="3" required>
+        <label>Dexterity:</label>
+        <input type="number" name="dexterity" min="3" required>
+        <label>Constitution:</label>
+        <input type="number" name="constitution" min="3" required>
+        <label>Intelligence:</label>
+        <input type="number" name="intelligence" min="3" required>
+        <label>Wisdom:</label>
+        <input type="number" name="wisdom" min="3" required>
+        <label>Charisma:</label>
+        <input type="number" name="charisma" min="3" required>
+        <input type="submit" value="Add Ability Scores">
+    </form>
+</div>
 
 <%- include('../partials/footer') %>
