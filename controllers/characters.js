@@ -78,7 +78,12 @@ function show(req, res){
 }
 
 function deleteCharacter(req, res){
-    console.log('deleteCharacter is being hit')
+    // console.log('deleteCharacter is being hit');
+    // console.log(req.params.id);
+    Character.deleteOne({_id: req.params.id}, function(err, deletedDoc){
+        // console.log(deletedDoc);
+        res.redirect('/characters');
+    });
 }
 
 function edit(req, res){
