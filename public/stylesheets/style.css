@@ -262,6 +262,14 @@ main > div > .nav {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
+#delete {
+  text-decoration: none;
+  font-size: 15px;
+  border: none;
+  color: white;
+  background: var(--red);
+}
+
 .button:hover {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), inset 0px 0px 3px rgba(0, 0, 0, 0.5);
 }

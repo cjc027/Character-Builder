@@ -4,7 +4,9 @@ module.exports = {
     index,
     new: newCharacter,
     create,
-    show
+    show,
+    delete: deleteCharacter,
+    edit
 };
 
 function index(req, res){
@@ -71,4 +73,12 @@ function show(req, res){
             title: characterDoc.name
         })
     })
+}
+
+function deleteCharacter(req, res){
+    console.log('deleteCharacter is being hit')
+}
+
+function edit(req, res){
+    console.log('edit is being hit')
 }

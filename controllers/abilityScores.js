@@ -6,9 +6,9 @@ module.exports = {
 };
 
 function newAbilityScores(res, req){
-    res.send('newEquipment is being hit');
+    console.log('newAbilityScores is being hit');
 };
 
 function create(res, req){
-    res.send('create is being hit');
+    console.log('create is being hit');
 };

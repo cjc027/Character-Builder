@@ -1,9 +1,13 @@
 <%- include('../partials/header') %>
 
-<a href="?" class="button">Edit Character</a>
-<a href="?" class="button">Add Ability Scores</a>
-<a href="?" class="button">Add Equipment</a>
-<a href="?" class="button">Delete Character</a>
+<a href="/characters/<%=character._id%>/edit" class="button">Edit Character</a>
+<a href="/characters/<%=character._id%>/abilityScores/new" class="button">Add Ability Scores</a>
+<a href="/characters/<%=character._id%>/equipment/new" class="button">Add Equipment</a>
+<!-- <a href="?" class="button">Delete Character</a> -->
+
+<form action="/characters/<%= character._id %>?_method=DELETE" class="button" method="POST">
+    <button type="submit" id="delete">Delete Character</button>
+</form>
 
 <section class="profile">
     <img class="profileImg" src="/images/TCP Armored 3.jpg">
