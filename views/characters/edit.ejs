@@ -9,61 +9,61 @@
         <input type="text" name="name" value="<%=character.name%>" required>
         <label>Race:</label>
         <select name="race">
-            <option value="Human" <%=character.race === editModule.race.human ? 'selected' : '' %>>Human</option>
-            <option value="Dwarf" <%=character.race === editModule.race.dwarf ? 'selected' : '' %>>Dwarf</option>
-            <option value="Elf" <%=character.race === editModule.race.elf ? 'selected' : '' %>>Elf</option>
-            <option value="Halfling" <%=character.race === editModule.race.halfling ? 'selected' : '' %>>Halfling</option>
-            <option value="Dragonborn" <%=character.race === editModule.race.dragonborn ? 'selected' : '' %>>Dragonborn</option>
-            <option value="Gnome" <%=character.race === editModule.race.gnome ? 'selected' : '' %>>Gnome</option>
-            <option value="Half-Elf" <%=character.race === editModule.race.halfElf ? 'selected' : '' %>>Half-Elf</option>
-            <option value="Half-Orc" <%=character.race === editModule.race.halfOrc ? 'selected' : '' %>>Half-Orc</option>
-            <option value="Tiefling" <%=character.race === editModule.race.tiefling ? 'selected' : '' %>>Tiefling</option>
+            <option value="Human" <%=character.race === editCharacter.race.human ? 'selected' : '' %>>Human</option>
+            <option value="Dwarf" <%=character.race === editCharacter.race.dwarf ? 'selected' : '' %>>Dwarf</option>
+            <option value="Elf" <%=character.race === editCharacter.race.elf ? 'selected' : '' %>>Elf</option>
+            <option value="Halfling" <%=character.race === editCharacter.race.halfling ? 'selected' : '' %>>Halfling</option>
+            <option value="Dragonborn" <%=character.race === editCharacter.race.dragonborn ? 'selected' : '' %>>Dragonborn</option>
+            <option value="Gnome" <%=character.race === editCharacter.race.gnome ? 'selected' : '' %>>Gnome</option>
+            <option value="Half-Elf" <%=character.race === editCharacter.race.halfElf ? 'selected' : '' %>>Half-Elf</option>
+            <option value="Half-Orc" <%=character.race === editCharacter.race.halfOrc ? 'selected' : '' %>>Half-Orc</option>
+            <option value="Tiefling" <%=character.race === editCharacter.race.tiefling ? 'selected' : '' %>>Tiefling</option>
         </select>
         <label>Subrace:</label>
         <!-- <input type="text" name="subrace"> -->
         <select name="subrace">
             <option value="Empty"></option>
-            <option value="Hill Dwarf" <%=character.subrace === editModule.subrace.hillDwarf ? 'selected' : '' %> >Hill Dwarf</option>
-            <option value="Mountain Dwarf" <%=character.subrace === editModule.subrace.mountainDwarf ? 'selected' : '' %> >Mountain Dwarf</option>
+            <option value="Hill Dwarf" <%=character.subrace === editCharacter.subrace.hillDwarf ? 'selected' : '' %> >Hill Dwarf</option>
+            <option value="Mountain Dwarf" <%=character.subrace === editCharacter.subrace.mountainDwarf ? 'selected' : '' %> >Mountain Dwarf</option>
             <option value="Empty"></option>
 
-            <option value="High Elf" <%=character.subrace === editModule.subrace.highElf ? 'selected' : '' %> >High Elf</option>
-            <option value="Wood Elf" <%=character.subrace === editModule.subrace.woodElf ? 'selected' : '' %> >Wood Elf</option>
+            <option value="High Elf" <%=character.subrace === editCharacter.subrace.highElf ? 'selected' : '' %> >High Elf</option>
+            <option value="Wood Elf" <%=character.subrace === editCharacter.subrace.woodElf ? 'selected' : '' %> >Wood Elf</option>
             <option value="Empty"></option>
 
-            <option value="Lightfoot" <%=character.subrace === editModule.subrace.lightfoot ? 'selected' : '' %> >Lightfoot</option>
-            <option value="Stout" <%=character.subrace === editModule.subrace.stout ? 'selected' : '' %> >Stout</option>
+            <option value="Lightfoot" <%=character.subrace === editCharacter.subrace.lightfoot ? 'selected' : '' %> >Lightfoot</option>
+            <option value="Stout" <%=character.subrace === editCharacter.subrace.stout ? 'selected' : '' %> >Stout</option>
             <option value="Empty"></option>
 
-            <option value="Forest Gnome" <%=character.subrace === editModule.subrace.forestGnome ? 'selected' : '' %> >Forest Gnome</option>
-            <option value="Rock Gnome" <%=character.subrace === editModule.subrace.rockGnome ? 'selected' : '' %> >Rock Gnome</option>
+            <option value="Forest Gnome" <%=character.subrace === editCharacter.subrace.forestGnome ? 'selected' : '' %> >Forest Gnome</option>
+            <option value="Rock Gnome" <%=character.subrace === editCharacter.subrace.rockGnome ? 'selected' : '' %> >Rock Gnome</option>
         </select>
         <label>Class:</label>
         <select name="class">
-            <option value="Barbarian" <%=character.class === editModule.characterClass.barbarian ? 'selected' : '' %> >Barbarian</option>
-            <option value="Bard" <%=character.class === editModule.characterClass.bard ? 'selected' : '' %> >Bard</option>
-            <option value="Cleric" <%=character.class === editModule.characterClass.cleric ? 'selected' : '' %> >Cleric</option>
-            <option value="Druid" <%=character.class === editModule.characterClass.druid ? 'selected' : '' %> >Druid</option>
-            <option value="Fighter" <%=character.class === editModule.characterClass.fighter ? 'selected' : '' %> >Fighter</option>
-            <option value="Monk" <%=character.class === editModule.characterClass.monk ? 'selected' : '' %> >Monk</option>
-            <option value="Paladin" <%=character.class === editModule.characterClass.paladin ? 'selected' : '' %> >Paladin</option>
-            <option value="Ranger" <%=character.class === editModule.characterClass.ranger ? 'selected' : '' %> >Ranger</option>
-            <option value="Rogue" <%=character.class === editModule.characterClass.rogue ? 'selected' : '' %> >Rogue</option>
-            <option value="Sorceror" <%=character.class === editModule.characterClass.sorceror ? 'selected' : '' %> >Sorceror</option>
-            <option value="Warlock" <%=character.class === editModule.characterClass.warlock ? 'selected' : '' %> >Warlock</option>
-            <option value="Wizard" <%=character.class === editModule.characterClass.wizard ? 'selected' : '' %> >Wizard</option>
+            <option value="Barbarian" <%=character.class === editCharacter.characterClass.barbarian ? 'selected' : '' %> >Barbarian</option>
+            <option value="Bard" <%=character.class === editCharacter.characterClass.bard ? 'selected' : '' %> >Bard</option>
+            <option value="Cleric" <%=character.class === editCharacter.characterClass.cleric ? 'selected' : '' %> >Cleric</option>
+            <option value="Druid" <%=character.class === editCharacter.characterClass.druid ? 'selected' : '' %> >Druid</option>
+            <option value="Fighter" <%=character.class === editCharacter.characterClass.fighter ? 'selected' : '' %> >Fighter</option>
+            <option value="Monk" <%=character.class === editCharacter.characterClass.monk ? 'selected' : '' %> >Monk</option>
+            <option value="Paladin" <%=character.class === editCharacter.characterClass.paladin ? 'selected' : '' %> >Paladin</option>
+            <option value="Ranger" <%=character.class === editCharacter.characterClass.ranger ? 'selected' : '' %> >Ranger</option>
+            <option value="Rogue" <%=character.class === editCharacter.characterClass.rogue ? 'selected' : '' %> >Rogue</option>
+            <option value="Sorceror" <%=character.class === editCharacter.characterClass.sorceror ? 'selected' : '' %> >Sorceror</option>
+            <option value="Warlock" <%=character.class === editCharacter.characterClass.warlock ? 'selected' : '' %> >Warlock</option>
+            <option value="Wizard" <%=character.class === editCharacter.characterClass.wizard ? 'selected' : '' %> >Wizard</option>
         </select>
         <label>Alignment:</label>
         <select name="alignment">
-          <option value="Lawful Good" <%=character.alignment === editModule.alignment.lawfulGood ? 'selected' : '' %> >Lawful Good</option>
-          <option value="Neutral Good" <%=character.alignment === editModule.alignment.neutralGood ? 'selected' : '' %> >Neutral Good</option>
-          <option value="Chaotic Good" <%=character.alignment === editModule.alignment.chaoticGood ? 'selected' : '' %> >Chaotic Good</option>
-          <option value="Lawful Neutral" <%=character.alignment === editModule.alignment.lawfulNeutral ? 'selected' : '' %> >Lawful Neutral</option>
-          <option value="True Neutral" <%=character.alignment === editModule.alignment.trueNeutral ? 'selected' : '' %> >True Neutral</option>
-          <option value="Chaotic Neutral" <%=character.alignment === editModule.alignment.chaoticNeutral ? 'selected' : '' %> >Chaotic Neutral</option>
-          <option value="Lawful Evil" <%=character.alignment === editModule.alignment.lawfulEvil ? 'selected' : '' %> >Lawful Evil</option>
-          <option value="Neutral Evil" <%=character.alignment === editModule.alignment.neutralEvil ? 'selected' : '' %> >Neutral Evil</option>
-          <option value="Chaotic Evil" <%=character.alignment === editModule.alignment.chaoticEvil ? 'selected' : '' %> >Chaotic Evil</option>
+          <option value="Lawful Good" <%=character.alignment === editCharacter.alignment.lawfulGood ? 'selected' : '' %> >Lawful Good</option>
+          <option value="Neutral Good" <%=character.alignment === editCharacter.alignment.neutralGood ? 'selected' : '' %> >Neutral Good</option>
+          <option value="Chaotic Good" <%=character.alignment === editCharacter.alignment.chaoticGood ? 'selected' : '' %> >Chaotic Good</option>
+          <option value="Lawful Neutral" <%=character.alignment === editCharacter.alignment.lawfulNeutral ? 'selected' : '' %> >Lawful Neutral</option>
+          <option value="True Neutral" <%=character.alignment === editCharacter.alignment.trueNeutral ? 'selected' : '' %> >True Neutral</option>
+          <option value="Chaotic Neutral" <%=character.alignment === editCharacter.alignment.chaoticNeutral ? 'selected' : '' %> >Chaotic Neutral</option>
+          <option value="Lawful Evil" <%=character.alignment === editCharacter.alignment.lawfulEvil ? 'selected' : '' %> >Lawful Evil</option>
+          <option value="Neutral Evil" <%=character.alignment === editCharacter.alignment.neutralEvil ? 'selected' : '' %> >Neutral Evil</option>
+          <option value="Chaotic Evil" <%=character.alignment === editCharacter.alignment.chaoticEvil ? 'selected' : '' %> >Chaotic Evil</option>
         </select>
         <br>
         <label class="textArea">Personal Characteristics:</label>

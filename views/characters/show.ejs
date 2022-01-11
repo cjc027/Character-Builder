@@ -3,7 +3,7 @@
 <a href="/characters/<%=character._id%>/edit" class="button">Edit Character</a>
 
 <% if (character.abilityScores.length > 0) { %>
-    <a href="/characters/<%=character._id%>/abilityScores/new" class="button">Edit Ability Scores</a>
+    <a href="/characters/<%=character._id%>/abilityScores/edit" class="button">Edit Ability Scores</a>
 <% } else { %>
     <a href="/characters/<%=character._id%>/abilityScores/new" class="button">Add Ability Scores</a>
 <% } %>
@@ -95,7 +95,7 @@
     <p><%=character.characteristics%></p>
     <br>
     <p><b>Background</b></p>
-    <p><%=character.background%> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum accusamus pariatur quod excepturi minus tempore natus quis voluptatem ullam, eius soluta expedita doloremque illo animi beatae quos error corporis cupiditate!</p>
+    <p><%=character.background%></p>
 </section>
 
 <section class="profile">

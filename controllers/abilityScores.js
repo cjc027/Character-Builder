@@ -2,7 +2,9 @@ const Character = require('../models/character');
 
 module.exports = {
     new: newAbilityScores,
-    create
+    create,
+    edit,
+    update
 };
 
 function newAbilityScores(req, res){
@@ -97,3 +99,92 @@ function create(req, res){
         });
     });
 };
+
+function edit(req, res){
+    console.log('edit is being hit. :id ->', req.params.id);
+
+    Character.findById(req.params.id, function(err, characterDoc){
+        const abilityPlaceholder = {
+            strength: characterDoc.abilityScores[0].strength,
+            dexterity: characterDoc.abilityScores[0].dexterity,
+            constitution: characterDoc.abilityScores[0].constitution,
+            intelligence: characterDoc.abilityScores[0].intelligence,
+            wisdom: characterDoc.abilityScores[0].wisdom,
+            charisma: characterDoc.abilityScores[0].charisma
+        }
+
+        if (characterDoc.race === 'Dragonborn'){
+            abilityPlaceholder.strength -= 2;
+            abilityPlaceholder.charisma -= 1;
+        };
+
+        if (characterDoc.race === 'Dwarf'){
+            abilityPlaceholder.constitution -= 2;
+            if (characterDoc.subrace === 'Hill Dwarf') {
+                abilityPlaceholder.wisdom -= 1;
+            } else {
+                abilityPlaceholder.strength -= 2;
+            };
+        };
+
+        if (characterDoc.race === 'Elf'){
+            abilityPlaceholder.dexterity -= 2;
+            if (characterDoc.subrace === 'High Elf'){
+                abilityPlaceholder.intelligence -= 1;
+            } else {
+                abilityPlaceholder.wisdom -= 1;
+            };
+        };
+        
+        if (characterDoc.race === 'Gnome'){
+            abilityPlaceholder.intelligence -= 2;
+            if (characterDoc.subrace === 'Rock Gnome'){
+                abilityPlaceholder.constitution -= 1;
+            } else {
+                abilityPlaceholder.dexterity -= 1;
+            };
+        };
+
+        if (characterDoc.race === 'Half-Elf'){
+            abilityPlaceholder.charisma -= 2;
+        };
+
+        if (characterDoc.race === 'Halfling'){
+            abilityPlaceholder.dexterity -= 2;
+            if (characterDoc.subrace === 'Lightfoot'){
+                abilityPlaceholder.charisma -= 1;
+            } else {
+                abilityPlaceholder.constitution -= 1;
+            }
+        };
+
+        if (characterDoc.race === 'Half-Orc'){
+            abilityPlaceholder.strength -= 2;
+            abilityPlaceholder.constitution -= 1;
+        };
+
+        if (characterDoc.race === 'Human'){
+            abilityPlaceholder.strength -= 1;
+            abilityPlaceholder.dexterity -= 1;
+            abilityPlaceholder.constitution -= 1;
+            abilityPlaceholder.wisdom -= 1;
+            abilityPlaceholder.intelligence -= 1;
+            abilityPlaceholder.charisma -= 1;
+        };
+
+        if (characterDoc.race === 'Tiefling'){
+            abilityPlaceholder.intelligence -= 1;
+            abilityPlaceholder.charisma -= 2;
+        };
+
+        res.render('abilityScores/edit', {
+            title: 'Edit Ability Scores',
+            character: characterDoc,
+            abilityPlaceholder
+        });
+    });
+};
+
+function update(req, res){
+    console.log('update is being hit');
+}

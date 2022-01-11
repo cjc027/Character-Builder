@@ -1,5 +1,5 @@
 const Character = require('../models/character');
-const editModule = require('../public/js/edit');
+const editCharacter = require('../public/js/editCharacter');
 
 module.exports = {
     index,
@@ -92,7 +92,7 @@ function edit(req, res){
         res.render('characters/edit', {
             character: characterDoc,
             title: 'Edit Character',
-            editModule
+            editCharacter
         })
     })
 }

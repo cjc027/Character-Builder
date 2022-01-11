@@ -1,0 +1,60 @@
+<%- include('../partials/header') %>
+
+<div>
+    <h2>Edit Ability Scores</h2>
+    <p><b>Racial Bonuses:</b></p>
+
+    <% if (character.race === 'Dragonborn') { %>
+        <p>Dragonborn: STR +2 | CHA +1</p>
+    <% } %> 
+    <% if (character.subrace === 'Hill Dwarf') { %>
+        <p>Hill Dwarf: CON +2 | WIS +1</p>
+    <% } %> 
+    <% if (character.subrace === 'Mountain Dwarf') { %>
+        <p>Mountain Dwarf: CON +2 | STR +2</p>
+    <% } %> 
+    <% if (character.subrace === 'High Elf') { %>
+        <p>High Elf: DEX +2 | INT +1</p>
+    <% } %> 
+    <% if (character.subrace === 'Wood Elf') { %>
+        <p>Wood Elf: DEX +2 | WIS +1</p>
+    <% } %> 
+    <% if (character.subrace === 'Lightfoot') { %>
+        <p>Lightfoot: DEX +2 | CHA +1</p>
+    <% } %> 
+    <% if (character.subrace === 'Stout') { %>
+        <p>Lightfoot: DEX +2 | CHA +1</p>
+    <% } %> 
+    <% if (character.subrace === 'Lightfoot') { %>
+        <p>Lightfoot: DEX +2 | CON +1</p>
+    <% } %>
+    <% if (character.race === 'Half-Elf') { %>
+        <p>Half-Elf: CHA +2 | Two Abilities +1 (Your Choice)</p>
+    <% } %>
+    <% if (character.race === 'Half-Orc') { %>
+        <p>Half-Orc: STR +2 | CON +1</p>
+    <% } %> 
+    <% if (character.race === 'Tiefling') { %>
+        <p>Tiefling: CHA +2 | INT +1</p>
+    <% } %> 
+
+    <br>
+
+    <form class="new-form" action='/characters/<%=character._id%>/abilityScores?_method=PUT' method="POST">
+        <label>Strength:</label>
+        <input type="number" name="strength" min="3" value="<%=abilityPlaceholder.strength%>" required>
+        <label>Dexterity:</label>
+        <input type="number" name="dexterity" min="3" value="<%=abilityPlaceholder.dexterity%>" required>
+        <label>Constitution:</label>
+        <input type="number" name="constitution" min="3" value="<%=abilityPlaceholder.constitution%>" required>
+        <label>Intelligence:</label>
+        <input type="number" name="intelligence" min="3" value="<%=abilityPlaceholder.intelligence%>" required>
+        <label>Wisdom:</label>
+        <input type="number" name="wisdom" min="3" value="<%=abilityPlaceholder.wisdom%>" required>
+        <label>Charisma:</label>
+        <input type="number" name="charisma" min="3" value="<%=abilityPlaceholder.charisma%>" required>
+        <input type="submit" value="Update Ability Scores">
+    </form>
+</div>
+
+<%- include('../partials/footer') %>
