@@ -34,15 +34,82 @@
 </section>
 
 <section class="profile">
-    <h3>Ability Scores</h3>    
+    <h3>Ability Scores</h3>
+    <% if (character.abilityScores.length) { %>
+        <table class="embedded">
+            <tr>
+                <td><b>STR:</b></td>
+                <td class='data'><%=character.abilityScores[0].strength%></td>
+                <td><b>DEX:</b></td>
+                <td class='data'><%=character.abilityScores[0].dexterity%></td>
+                <td><b>CON:</b></td>
+                <td class='data'><%=character.abilityScores[0].constitution%></td>
+            </tr>
+            <tr>
+                <td><b>INT:</b></td>
+                <td class='data'><%=character.abilityScores[0].intelligence%></td>
+                <td><b>WIS:</b></td>
+                <td class='data'><%=character.abilityScores[0].wisdom%></td>
+                <td><b>CHA:</b></td>
+                <td class='data'><%=character.abilityScores[0].charisma%></td>
+            </tr>
+        </table>
+    <% } else { %>
+        <table class="embedded">
+            <tr>
+                <td><b>STR:</b></td>
+                <td class='data'>#</td>
+                <td><b>DEX:</b></td>
+                <td class='data'>#</td>
+                <td><b>CON:</b></td>
+                <td class='data'>#</td>
+            </tr>
+            <tr>
+                <td><b>INT:</b></td>
+                <td class='data'>#</td>
+                <td><b>WIS:</b></td>
+                <td class='data'>#</td>
+                <td><b>CHA:</b></td>
+                <td class='data'>#</td>
+            </tr>
+        </table>
+    <% } %>
 </section>
 
 <section class="profile">
-    <h3>Profile</h3>    
+    <h3>Profile</h3>
+    <p><b>Characteristics</b></p>
+    <p><%=character.characteristics%></p>
+    <br>
+    <p><b>Background</b></p>
+    <p><%=character.background%> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum accusamus pariatur quod excepturi minus tempore natus quis voluptatem ullam, eius soluta expedita doloremque illo animi beatae quos error corporis cupiditate!</p>
 </section>
 
 <section class="profile">
-    <h3>Equipment</h3>    
+    <h3>Equipment</h3>
+    <table class="embedded">
+        <% if (character.equipment.length) { %>
+            <% character.equipment.forEach(function(e){ %>
+                <tr>
+                    <td><b>Name:</b></td>
+                    <td class='data'><%=e.name%></td>
+                    <td><b>Cost:</b></td>
+                    <td class='data'><%=e.cost%></td>
+                    <td><b>Weight:</b></td>
+                    <td class='data'><%=e.weight%></td>
+                </tr>
+            <% }); %>
+        <% } else { %>
+            <tr>
+                <td><b>Name:</b></td>
+                <td class='data'></td>
+                <td><b>Cost:</b></td>
+                <td class='data'></td>
+                <td><b>Weight:</b></td>
+                <td class='data'></td>
+            </tr>
+        <% } %>
+    </table>
 </section>
 
 <%- include('../partials/footer') %>
