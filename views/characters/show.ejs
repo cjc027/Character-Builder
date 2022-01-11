@@ -1,13 +1,20 @@
 <%- include('../partials/header') %>
 
 <a href="/characters/<%=character._id%>/edit" class="button">Edit Character</a>
-<a href="/characters/<%=character._id%>/abilityScores/new" class="button">Add Ability Scores</a>
+
+<% if (character.abilityScores.length > 0) { %>
+    <a href="/characters/<%=character._id%>/abilityScores/new" class="button">Edit Ability Scores</a>
+<% } else { %>
+    <a href="/characters/<%=character._id%>/abilityScores/new" class="button">Add Ability Scores</a>
+<% } %>
+
 <a href="/characters/<%=character._id%>/equipment/new" class="button">Add Equipment</a>
-<!-- <a href="?" class="button">Delete Character</a> -->
 
 <form action="/characters/<%= character._id %>?_method=DELETE" class="button" method="POST">
-    <button type="submit" id="delete" onclick="return confirm('Are you sure?')">Delete Character</button>
+    <button type="submit" class="delete" onclick="return confirm('Are you sure?')">Delete Character</button>
 </form>
+
+
 
 <section class="profile">
     <img class="profileImg" src="/images/TCP Armored 3.jpg">
@@ -96,24 +103,46 @@
     <table class="embedded">
         <% if (character.equipment.length) { %>
             <% character.equipment.forEach(function(e){ %>
-                <tr>
-                    <td><b>Name:</b></td>
-                    <td class='data'><%=e.name%></td>
-                    <td><b>Cost:</b></td>
-                    <td class='data'><%=e.cost%></td>
-                    <td><b>Weight:</b></td>
-                    <td class='data'><%=e.weight%></td>
-                </tr>
+                <thead>
+                    <tr>
+                        <td><b>Name</b></td>
+                        <td><b>Cost</b></td>
+                        <td><b>Weight</b></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class='data'><%=e.name%></td>
+                        <td class='data'><%=e.cost%></td>
+                        <td class='data'><%=e.weight%></td>
+                        <td>
+                            <form action="/equipment/<%=e._id%>?_method=DELETE" method="POST">
+                                <button type="submit" class="delete">
+                                    X
+                                </button>                        
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
             <% }); %>
         <% } else { %>
-            <tr>
-                <td><b>Name:</b></td>
-                <td class='data'></td>
-                <td><b>Cost:</b></td>
-                <td class='data'></td>
-                <td><b>Weight:</b></td>
-                <td class='data'></td>
-            </tr>
+            <thead>
+                <tr>
+                    <td><b>Name</b></td>
+                    <td><b>Cost</b></td>
+                    <td><b>Weight</b></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class='data'></td>
+                    <td class='data'></td>
+                    <td class='data'></td>
+                    <td></td>
+                </tr>
+            </tbody>
         <% } %>
     </table>
 </section>
