@@ -203,13 +203,13 @@ main > div > .nav {
   margin-right: 20px;
 }
 
-#new-form {
+.new-form {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 1fr 1fr;
 }
 
-#new-form > textarea {
+.new-form > textarea {
   grid-column: span 2;
   width: 70%;
   height: 100px;
@@ -218,19 +218,19 @@ main > div > .nav {
   margin-right: auto;
 }
 
-#new-form > input, select {
+.new-form > input, select {
   width: 80%;
 }
 
-#new-form > .textArea {
+.new-form > .textArea {
   grid-column: span 2;
   margin-left: auto;
   margin-right: auto;
 }
 
-#new-form > input[type="submit"] {
+.new-form > input[type="submit"] {
   grid-column: span 2;
-  width: 80%;
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px;

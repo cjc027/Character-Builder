@@ -1,13 +1,16 @@
 <%- include('../partials/header') %>
 
+
+
 <div>
-    <h2>New Character</h2><br>
-    <form class="new-form" action="/characters" method="POST">
+    <h2><%=title%></h2>
+    <h2><%=editModule.race.human%></h2>
+    <form class="new-form" action="/characters/<%=character._id%>?method=PUT" method="POST">
         <label>Name:</label>
-        <input type="text" name="name" required>
+        <input type="text" name="name" value="<%=character.name%>" required>
         <label>Race:</label>
         <select name="race">
-            <option value="Human">Human</option>
+            <option value="Human" >Human</option>
             <option value="Dwarf">Dwarf</option>
             <option value="Elf">Elf</option>
             <option value="Halfling">Halfling</option>

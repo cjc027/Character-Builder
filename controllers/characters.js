@@ -1,4 +1,5 @@
 const Character = require('../models/character');
+const editModule = require('../public/js/edit');
 
 module.exports = {
     index,
@@ -81,4 +82,11 @@ function deleteCharacter(req, res){
 
 function edit(req, res){
     console.log('edit is being hit')
+    Character.findById(req.params.id, function(err, characterDoc){
+        res.render('characters/edit', {
+            character: characterDoc,
+            title: 'Edit Character',
+            editModule
+        })
+    })
 }
