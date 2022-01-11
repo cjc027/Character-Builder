@@ -19,6 +19,12 @@ function newAbilityScores(req, res){
 
 function create(req, res){
     // console.log('create is being hit', req.body, req.params.id);
+    req.body.strength = parseInt(req.body.strength);
+    req.body.dexterity = parseInt(req.body.dexterity);
+    req.body.constitution = parseInt(req.body.constitution);
+    req.body.wisdom = parseInt(req.body.wisdom);
+    req.body.intelligence = parseInt(req.body.intelligence);
+    req.body.charisma = parseInt(req.body.charisma);
 
     Character.findById(req.params.id, function(err, characterDoc){
         if (characterDoc.race === 'Dragonborn'){
