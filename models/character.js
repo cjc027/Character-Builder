@@ -14,6 +14,7 @@ const abilitySchema = new Schema({
 const equipmentSchema = new Schema({
     name: {type: String, required: true},
     cost: Number,
+    currency: String,
     weight: Number
 });
 
