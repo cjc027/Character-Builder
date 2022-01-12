@@ -117,7 +117,7 @@
                         <td class='data'><%=e.cost%></td>
                         <td class='data'><%=e.weight%></td>
                         <td>
-                            <form action="/equipment/<%=e._id%>?_method=DELETE" method="POST">
+                            <form action="/characters/<%=character._id%>/equipment/<%=e._id%>?_method=DELETE" method="POST">
                                 <button type="submit" class="delete">
                                     X
                                 </button>                        

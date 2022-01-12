@@ -2,7 +2,8 @@ const Character = require('../models/character');
 
 module.exports = {
     new: newEquipment,
-    create
+    create,
+    delete: deleteEquipment
 };
 
 function newEquipment(req, res){
@@ -27,3 +28,16 @@ function create(req, res){
         });
     });
 };
+
+function deleteEquipment(req, res){
+    console.log('deleteEquipment is being hit', req.query);
+    console.log(req.params);
+
+    Character.findById(req.params.id, function(err, characterDoc){
+        characterDoc.equipment.id(req.params.equipmentId).remove();
+        characterDoc.save(function(err){
+            res.redirect(`/characters/${req.params.id}`);
+        })
+    })
+    
+}
