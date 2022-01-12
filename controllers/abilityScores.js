@@ -8,8 +8,6 @@ module.exports = {
 };
 
 function newAbilityScores(req, res){
-    
-    if (!req.user) res.redirect('/');
 
     Character.findOne({_id: req.params.id, userId: req.user._id}, function(err, characterDoc){
         if (err || !characterDoc) return res.redirect(`/characters/${req.params.id}`);
@@ -102,11 +100,9 @@ function create(req, res){
 };
 
 function edit(req, res){
-    console.log('edit is being hit. :id ->', req.params.id);
-    if (!req.user) return res.redirect(`/characters/${req.params.id}`);
 
     Character.findOne({_id: req.params.id, userId: req.user._id}, function(err, characterDoc){
-        if (err || !characterDoc) return res.redirect('/characters');
+        if (err || !characterDoc) return res.redirect(`/characters/${req.params.id}`);
 
         const abilityPlaceholder = {
             strength: characterDoc.abilityScores[0].strength,
@@ -190,7 +186,7 @@ function edit(req, res){
 };
 
 function update(req, res){
-    // console.log('update is being hit');
+
     req.body.strength = parseInt(req.body.strength);
     req.body.dexterity = parseInt(req.body.dexterity);
     req.body.constitution = parseInt(req.body.constitution);
@@ -198,14 +194,14 @@ function update(req, res){
     req.body.intelligence = parseInt(req.body.intelligence);
     req.body.charisma = parseInt(req.body.charisma);
 
-    Character.findById(req.params.id, function(err, characterDoc){
-        if (req.params.id.toString() != req.user._id.toString()) return res.render('/');
+    Character.findOne({_id: req.params.id, userId: req.user._id}, function(err, characterDoc){
+        if (err || !characterDoc) return res.redirect(`/characters/${req.params.id}`);
 
         if (characterDoc.race === 'Dragonborn'){
             req.body.strength += 2;
             req.body.charisma += 1;
         };
-
+    
         if (characterDoc.race === 'Dwarf'){
             req.body.constitution += 2;
             if (characterDoc.subrace === 'Hill Dwarf') {
@@ -214,7 +210,7 @@ function update(req, res){
                 req.body.strength += 2;
             };
         };
-
+    
         if (characterDoc.race === 'Elf'){
             req.body.dexterity += 2;
             if (characterDoc.subrace === 'High Elf'){
@@ -232,11 +228,11 @@ function update(req, res){
                 req.body.dexterity += 1;
             };
         };
-
+    
         if (characterDoc.race === 'Half-Elf'){
             req.body.charisma += 2;
         };
-
+    
         if (characterDoc.race === 'Halfling'){
             req.body.dexterity += 2;
             if (characterDoc.subrace === 'Lightfoot'){
@@ -245,12 +241,12 @@ function update(req, res){
                 req.body.constitution += 1;
             }
         };
-
+    
         if (characterDoc.race === 'Half-Orc'){
             req.body.strength += 2;
             req.body.constitution += 1;
         };
-
+    
         if (characterDoc.race === 'Human'){
             req.body.strength += 1;
             req.body.dexterity += 1;
@@ -259,16 +255,20 @@ function update(req, res){
             req.body.intelligence += 1;
             req.body.charisma += 1;
         };
-
+    
         if (characterDoc.race === 'Tiefling'){
             req.body.intelligence += 1;
             req.body.charisma += 2;
         };
-
+    
         characterDoc.abilityScores.shift();
         characterDoc.abilityScores.push(req.body);
         characterDoc.save(function(err){
             res.redirect(`/characters/${req.params.id}`);
         });
-    });
+    })
+
+    // Character.findById(req.params.id, function(err, characterDoc){
+
+    // });
 }

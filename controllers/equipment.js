@@ -7,7 +7,7 @@ module.exports = {
 };
 
 function newEquipment(req, res){
-    if (!req.user) return res.redirect(`/characters/${req.params.id}`);
+    // if (!req.user) return res.redirect(`/characters/${req.params.id}`);
 
     Character.findById(req.params.id, function(err, characterDoc){
         res.render('equipment/new', {
@@ -18,7 +18,7 @@ function newEquipment(req, res){
 };
 
 function create(req, res){
-    if (!req.user) return res.redirect(`/characters/${req.params.id}`);
+    // if (!req.user) return res.redirect(`/characters/${req.params.id}`);
 
     req.body.cost = parseInt(req.body.cost);
     Character.findById(req.params.id, function(err, characterDoc){
@@ -31,7 +31,7 @@ function create(req, res){
 
 function deleteEquipment(req, res){
 
-    if (!req.user) return res.redirect(`/characters/${req.params.id}`);
+    // if (!req.user) return res.redirect(`/characters/${req.params.id}`);
 
     Character.findOne({_id: req.params.id, userId: req.user._id}, function(err, characterDoc){
         if (err || !characterDoc) return res.redirect(`/characters/${req.params.id}`);

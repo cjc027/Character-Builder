@@ -12,31 +12,23 @@ module.exports = {
 };
 
 function index(req, res){
-    if (req.user) {
-        Character.find({userId: req.user._id}, function(err, characterDocs){
-            res.render('characters/index', {
-                title: 'My Characters',
-                characters: characterDocs
-            });
+    Character.find({userId: req.user._id}, function(err, characterDocs){
+        res.render('characters/index', {
+            title: 'My Characters',
+            characters: characterDocs
         });
-    } else {
-        res.redirect('/');
-    };
+    });
 };
 
 function newCharacter(req, res){
-    if (req.user) {
-        res.render('characters/new', {
-            title: 'New Character'
-        });
-    } else {
-        res.redirect('/');
-    };
+    res.render('characters/new', {
+        title: 'New Character'
+    });
 };
 
 function create(req, res){
 
-    if (!req.user) return res.redirect('/');
+    // if (!req.user) return res.redirect('/');
 
     if (req.body.subrace === 'Empty'){
         if (req.body.race === 'Dwarf'){
@@ -54,7 +46,7 @@ function create(req, res){
 
     const newCharacter = {
         name: req.body.name,
-        userId: req.user._id,
+        userId: req.user._id, // reference userId
         race: req.body.race,
         subrace: req.body.subrace,
         class: req.body.class,
@@ -67,47 +59,34 @@ function create(req, res){
         console.log(characterDoc);
         res.redirect(`/characters`);
     });
-}
+};
 
 function show(req, res){
     Character.findById(req.params.id, function(err, characterDoc){
         res.render('characters/show', {
             character: characterDoc,
             title: characterDoc.name
-        })
-    })
-}
+        });
+    });
+};
 
 function deleteCharacter(req, res){
-
     Character.findOneAndDelete({_id: req.params.id, userId: req.user._id}, function(err){
         res.redirect('/characters');
     });
-
-    // Character.deleteOne({_id: req.params.id}, function(err, deletedDoc){
-    //     res.redirect('/characters');
-    // });
 };
 
 function edit(req, res){
-    
-    if (!req.user) return res.redirect(`/characters/${req.params.id}`);
-
     Character.findById(req.params.id, function(err, characterDoc){
         res.render('characters/edit', {
             character: characterDoc,
             title: 'Edit Character',
             editCharacter
-        })
-    })
-}
+        });
+    });
+};
 
 function update(req, res){
-    console.log('update is being hit');
-    console.log(req.user)
-    
-    if (!req.user) return res.redirect(`/characters/${req.params.id}`);
-
     if (req.body.subrace === 'Empty'){
         if (req.body.race === 'Dwarf'){
             req.body.subrace = 'Mountain Dwarf'
