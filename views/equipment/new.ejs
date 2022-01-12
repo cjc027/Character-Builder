@@ -7,7 +7,7 @@
         <input type="text" name="name" required>
         
         <label>Cost:</label>
-        <input type="number" name="cost">
+        <input type="number" name="cost" value="1" min="0">
         <div id="radio">
             <input type="radio" id="cp" name="currency" value="cp">
             <label for="cp">Copper</label><br>
@@ -18,7 +18,7 @@
         </div>
 
         <label>Weight (lb):</label>
-        <input type="number" name="weight">
+        <input type="number" name="weight" value="1" min="0">
         <input type="submit" value="Add Equipment">
     </form>
 </div>

@@ -118,7 +118,7 @@ function update(req, res){
     
         const updatedCharacter = {
             name: req.body.name,
-            userId: req.user._id,
+            // userId: req.user._id,
             race: req.body.race,
             subrace: req.body.subrace,
             class: req.body.class,

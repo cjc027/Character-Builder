@@ -17,7 +17,7 @@
 
 
 <section class="profile">
-    <img class="profileImg" src="/images/TCP Armored 3.jpg">
+    <img class="profileImg" src="/images/portraits/default.jpg">
     <table class="profileText">
         <tr>
             <td><b>Name:</b></td>
@@ -49,74 +49,57 @@
 <section class="profile">
     <h3>Ability Scores</h3>
     <% if (character.abilityScores.length) { %>
-        <table class="embedded">
-            <tr>
-                <td><b>STR:</b></td>
-                <td class='data'><%=character.abilityScores[0].strength%></td>
-                <td><b>DEX:</b></td>
-                <td class='data'><%=character.abilityScores[0].dexterity%></td>
-                <td><b>CON:</b></td>
-                <td class='data'><%=character.abilityScores[0].constitution%></td>
-            </tr>
-            <tr>
-                <td><b>INT:</b></td>
-                <td class='data'><%=character.abilityScores[0].intelligence%></td>
-                <td><b>WIS:</b></td>
-                <td class='data'><%=character.abilityScores[0].wisdom%></td>
-                <td><b>CHA:</b></td>
-                <td class='data'><%=character.abilityScores[0].charisma%></td>
-            </tr>
-        </table>
+        <div id="abilityScores">
+            <p><b>STR:</b> <%=character.abilityScores[0].strength%> <span>(<i><%=Math.floor((character.abilityScores[0].strength-10)/2)%></i>)</span></p>
+            <p><b>DEX:</b> <%=character.abilityScores[0].dexterity%> <span>(<i><%=Math.floor((character.abilityScores[0].dexterity-10)/2)%></i>)</span></p>
+            <p><b>CON:</b> <%=character.abilityScores[0].constitution%> <span>(<i><%=Math.floor((character.abilityScores[0].constitution-10)/2)%></i>)</span></p>
+            <p><b>INT:</b> <%=character.abilityScores[0].intelligence%> <span>(<i><%=Math.floor((character.abilityScores[0].intelligence-10)/2)%></i>)</span></p>
+            <p><b>WIS:</b> <%=character.abilityScores[0].wisdom%> <span>(<i><%=Math.floor((character.abilityScores[0].wisdom-10)/2)%></i>)</span></p>
+            <p><b>CHA:</b> <%=character.abilityScores[0].charisma%> <span>(<i><%=Math.floor((character.abilityScores[0].charisma-10)/2)%></i>)</span></p>
+        </div>
+        
     <% } else { %>
-        <table class="embedded">
-            <tr>
-                <td><b>STR:</b></td>
-                <td class='data'>#</td>
-                <td><b>DEX:</b></td>
-                <td class='data'>#</td>
-                <td><b>CON:</b></td>
-                <td class='data'>#</td>
-            </tr>
-            <tr>
-                <td><b>INT:</b></td>
-                <td class='data'>#</td>
-                <td><b>WIS:</b></td>
-                <td class='data'>#</td>
-                <td><b>CHA:</b></td>
-                <td class='data'>#</td>
-            </tr>
-        </table>
+        <div id="abilityScores">
+            <p><b>STR:</b> N/A</p>
+            <p><b>DEX:</b> N/A</p>
+            <p><b>CON:</b> N/A</p>
+            <p><b>INT:</b> N/A</p>
+            <p><b>WIS:</b> N/A</p>
+            <p><b>CHA:</b> N/A</p>
+        </div>
     <% } %>
 </section>
 
 <section class="profile">
     <h3>Profile</h3>
-    <p><b>Characteristics</b></p>
-    <p><%=character.characteristics%></p>
-    <br>
-    <p><b>Background</b></p>
-    <p><%=character.background%></p>
+    <div>
+        <p><b>Characteristics</b></p>
+        <p><%=character.characteristics%></p>
+        <br>
+        <p><b>Background</b></p>
+        <p class="lastElement"><%=character.background%></p>
+    </div>
 </section>
 
 <section class="profile">
     <h3>Equipment</h3>
     <table class="embedded">
+        <thead>
+            <tr class="equipmentTable">
+                <td><b>Name</b></td>
+                <td><b>Cost</b></td>
+                <td><b>Weight (lb)</b></td>
+                <td></td>
+            </tr>
+        </thead>
         <% if (character.equipment.length) { %>
             <% character.equipment.forEach(function(e){ %>
-                <thead>
-                    <tr>
-                        <td><b>Name</b></td>
-                        <td><b>Cost</b></td>
-                        <td><b>Weight</b></td>
-                        <td></td>
-                    </tr>
-                </thead>
                 <tbody>
-                    <tr>
-                        <td class='data'><%=e.name%></td>
-                        <td class='data'><%=e.cost%></td>
-                        <td class='data'><%=e.weight%></td>
-                        <td>
+                    <tr class="equipmentTable">
+                        <td class='equipmentData'><%=e.name%></td>
+                        <td class='equipmentData'><%=e.cost%></td>
+                        <td class='equipmentData'><%=e.weight%></td>
+                        <td class='equipmentData'>
                             <form action="/characters/<%=character._id%>/equipment/<%=e._id%>?_method=DELETE" method="POST">
                                 <button type="submit" class="delete">
                                     X
@@ -127,20 +110,20 @@
                 </tbody>
             <% }); %>
         <% } else { %>
-            <thead>
-                <tr>
+            <!-- <thead>
+                <tr class="equipmentTable">
                     <td><b>Name</b></td>
                     <td><b>Cost</b></td>
                     <td><b>Weight</b></td>
                     <td></td>
                 </tr>
-            </thead>
+            </thead> -->
             <tbody>
-                <tr>
-                    <td class='data'></td>
-                    <td class='data'></td>
-                    <td class='data'></td>
-                    <td></td>
+                <tr class="equipmentTable">
+                    <td class='equipmentData'></td>
+                    <td class='equipmentData'></td>
+                    <td class='equipmentData'></td>
+                    <td class='equipmentData'></td>
                 </tr>
             </tbody>
         <% } %>
