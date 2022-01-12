@@ -225,6 +225,10 @@ thead {
   grid-row: span 3;
 }
 
+.profileImg:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
 .characterImg {
   place-self: center;
   border-radius: 5px;
@@ -328,6 +332,10 @@ main > div > .nav {
   background: var(--red);
 }
 
+.delete:disabled {
+  color: rgb(165, 165, 165);
+}
+
 .button:hover {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), inset 0px 0px 3px rgba(0, 0, 0, 0.5);
 }
@@ -358,7 +366,6 @@ main > div > .nav {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  /* background: #363636; */
   background: var(--red);
 }
 

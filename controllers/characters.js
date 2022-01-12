@@ -35,7 +35,8 @@ function newCharacter(req, res){
 };
 
 function create(req, res){
-    console.log(req.body);
+
+    if (!req.user) return res.redirect('/');
 
     if (req.body.subrace === 'Empty'){
         if (req.body.race === 'Dwarf'){
@@ -78,16 +79,20 @@ function show(req, res){
 }
 
 function deleteCharacter(req, res){
-    // console.log('deleteCharacter is being hit');
-    // console.log(req.params.id);
-    Character.deleteOne({_id: req.params.id}, function(err, deletedDoc){
-        // console.log(deletedDoc);
+
+    Character.findOneAndDelete({_id: req.params.id, userId: req.user._id}, function(err){
         res.redirect('/characters');
     });
-}
+
+    // Character.deleteOne({_id: req.params.id}, function(err, deletedDoc){
+    //     res.redirect('/characters');
+    // });
+};
 
 function edit(req, res){
-    console.log('edit is being hit')
+    
+    if (!req.user) return res.redirect(`/characters/${req.params.id}`);
+
     Character.findById(req.params.id, function(err, characterDoc){
         res.render('characters/edit', {
             character: characterDoc,
@@ -100,43 +105,55 @@ function edit(req, res){
 function update(req, res){
     console.log('update is being hit');
     console.log(req.user)
-    // console.log(req.body);
-    if (req.user) {
-        if (req.body.subrace === 'Empty'){
-            if (req.body.race === 'Dwarf'){
-                req.body.subrace = 'Mountain Dwarf'
-            } else if (req.body.race === 'Elf'){
-                req.body.subrace = 'Wood Elf'
-            } else if (req.body.race === 'Halfling'){
-                req.body.subrace = 'Lightfoot'
-            } else if (req.body.race === 'Gnome'){
-                req.body.subrace = 'Rock Gnome'
-            } else {
-                req.body.subrace = ''
-            }
-        };
     
-        const updatedCharacter = {
-            name: req.body.name,
-            // userId: req.user._id,
-            race: req.body.race,
-            subrace: req.body.subrace,
-            class: req.body.class,
-            alignment: req.body.alignment,
-            characteristics: req.body.characteristics,
-            background: req.body.background
-        };
+    if (!req.user) return res.redirect(`/characters/${req.params.id}`);
+
+    if (req.body.subrace === 'Empty'){
+        if (req.body.race === 'Dwarf'){
+            req.body.subrace = 'Mountain Dwarf'
+        } else if (req.body.race === 'Elf'){
+            req.body.subrace = 'Wood Elf'
+        } else if (req.body.race === 'Halfling'){
+            req.body.subrace = 'Lightfoot'
+        } else if (req.body.race === 'Gnome'){
+            req.body.subrace = 'Rock Gnome'
+        } else {
+            req.body.subrace = ''
+        }
+    };
+    
+    const updatedCharacter = {
+        name: req.body.name,
+        race: req.body.race,
+        subrace: req.body.subrace,
+        class: req.body.class,
+        alignment: req.body.alignment,
+        characteristics: req.body.characteristics,
+        background: req.body.background
+    };
+
+    Character.findOneAndUpdate(
+        {_id: req.params.id, userId: req.user._id}, 
+        updatedCharacter,
+        {new: true},
+        function(err, characterDoc){
+            if (err || !characterDoc) return res.redirect('/characters');
+            res.redirect(`/characters/${req.params.id}`);
+        })
+
+    // if (req.user) {
+    
     
         
-        Character.updateOne({_id: req.params.id}, updatedCharacter, function(err, characterDoc){
-            console.log(characterDoc, "document!");
-            res.redirect(`/characters/${req.params.id}`);
-        });
+    //     Character.updateOne({_id: req.params.id}, updatedCharacter, function(err, characterDoc){
+    //         console.log(characterDoc, "document!");
+    //         res.redirect(`/characters/${req.params.id}`);
+    //     });
 
 
-    } else {
-        res.redirect('/');
-    }
+    // } else {
+    //     res.redirect('/');
+    // }
 
 
 }

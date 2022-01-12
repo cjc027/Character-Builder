@@ -8,19 +8,20 @@ module.exports = {
 };
 
 function newAbilityScores(req, res){
-    console.log('newAbilityScores is being hit', req.params.id);
     
-    Character.findById(req.params.id, function(err, characterDoc){
+    if (!req.user) res.redirect('/');
+
+    Character.findOne({_id: req.params.id, userId: req.user._id}, function(err, characterDoc){
+        if (err || !characterDoc) return res.redirect(`/characters/${req.params.id}`);
         res.render('abilityScores/new', {
             title: 'Add Ability Scores',
             character: characterDoc
         });
     });
-
 };
 
 function create(req, res){
-    // console.log('create is being hit', req.body, req.params.id);
+    
     req.body.strength = parseInt(req.body.strength);
     req.body.dexterity = parseInt(req.body.dexterity);
     req.body.constitution = parseInt(req.body.constitution);
@@ -102,8 +103,11 @@ function create(req, res){
 
 function edit(req, res){
     console.log('edit is being hit. :id ->', req.params.id);
+    if (!req.user) return res.redirect(`/characters/${req.params.id}`);
 
-    Character.findById(req.params.id, function(err, characterDoc){
+    Character.findOne({_id: req.params.id, userId: req.user._id}, function(err, characterDoc){
+        if (err || !characterDoc) return res.redirect('/characters');
+
         const abilityPlaceholder = {
             strength: characterDoc.abilityScores[0].strength,
             dexterity: characterDoc.abilityScores[0].dexterity,
@@ -195,6 +199,8 @@ function update(req, res){
     req.body.charisma = parseInt(req.body.charisma);
 
     Character.findById(req.params.id, function(err, characterDoc){
+        if (req.params.id.toString() != req.user._id.toString()) return res.render('/');
+
         if (characterDoc.race === 'Dragonborn'){
             req.body.strength += 2;
             req.body.charisma += 1;

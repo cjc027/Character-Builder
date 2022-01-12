@@ -1,23 +1,27 @@
 <%- include('../partials/header') %>
 
+<%if (user && (user._id.toString() === character.userId.toString())) {%>
+
 <a href="/characters/<%=character._id%>/edit" class="button">Edit Character</a>
 
-<% if (character.abilityScores.length > 0) { %>
-    <a href="/characters/<%=character._id%>/abilityScores/edit" class="button">Edit Ability Scores</a>
-<% } else { %>
-    <a href="/characters/<%=character._id%>/abilityScores/new" class="button">Add Ability Scores</a>
-<% } %>
+    <% if (character.abilityScores.length > 0) { %>
+        <a href="/characters/<%=character._id%>/abilityScores/edit" class="button">Edit Ability Scores</a>
+    <% } else { %>
+        <a href="/characters/<%=character._id%>/abilityScores/new" class="button">Add Ability Scores</a>
+    <% } %>
 
-<a href="/characters/<%=character._id%>/equipment/new" class="button">Add Equipment</a>
+    <a href="/characters/<%=character._id%>/equipment/new" class="button">Add Equipment</a>
 
-<form action="/characters/<%= character._id %>?_method=DELETE" class="button" method="POST">
-    <button type="submit" class="delete" onclick="return confirm('Are you sure?')">Delete Character</button>
-</form>
+    <form action="/characters/<%= character._id %>?_method=DELETE" class="button" method="POST">
+        <button type="submit" class="delete" onclick="return confirm('Are you sure?')">
+            Delete Character
+        </button>
+    </form>
 
-
+<%} %>
 
 <section class="profile">
-    <img class="profileImg" src="/images/portraits/default.jpg">
+    <img class="profileImg" src="/images/portraits/default.jpg" onclick="window.location='/characters'" style="cursor: pointer;">
     <table class="profileText">
         <tr>
             <td><b>Name:</b></td>
@@ -50,12 +54,12 @@
     <h3>Ability Scores</h3>
     <% if (character.abilityScores.length) { %>
         <div id="abilityScores">
-            <p><b>STR:</b> <%=character.abilityScores[0].strength%> <span>(<i><%=Math.floor((character.abilityScores[0].strength-10)/2)%></i>)</span></p>
-            <p><b>DEX:</b> <%=character.abilityScores[0].dexterity%> <span>(<i><%=Math.floor((character.abilityScores[0].dexterity-10)/2)%></i>)</span></p>
-            <p><b>CON:</b> <%=character.abilityScores[0].constitution%> <span>(<i><%=Math.floor((character.abilityScores[0].constitution-10)/2)%></i>)</span></p>
-            <p><b>INT:</b> <%=character.abilityScores[0].intelligence%> <span>(<i><%=Math.floor((character.abilityScores[0].intelligence-10)/2)%></i>)</span></p>
-            <p><b>WIS:</b> <%=character.abilityScores[0].wisdom%> <span>(<i><%=Math.floor((character.abilityScores[0].wisdom-10)/2)%></i>)</span></p>
-            <p><b>CHA:</b> <%=character.abilityScores[0].charisma%> <span>(<i><%=Math.floor((character.abilityScores[0].charisma-10)/2)%></i>)</span></p>
+            <p><b>STR:</b> <%=character.abilityScores[0].strength%> <span>( <i><%=Math.floor((character.abilityScores[0].strength-10)/2)%></i> )</span></p>
+            <p><b>DEX:</b> <%=character.abilityScores[0].dexterity%> <span>( <i><%=Math.floor((character.abilityScores[0].dexterity-10)/2)%></i> )</span></p>
+            <p><b>CON:</b> <%=character.abilityScores[0].constitution%> <span>( <i><%=Math.floor((character.abilityScores[0].constitution-10)/2)%></i> )</span></p>
+            <p><b>INT:</b> <%=character.abilityScores[0].intelligence%> <span>( <i><%=Math.floor((character.abilityScores[0].intelligence-10)/2)%></i> )</span></p>
+            <p><b>WIS:</b> <%=character.abilityScores[0].wisdom%> <span>( <i><%=Math.floor((character.abilityScores[0].wisdom-10)/2)%></i> )</span></p>
+            <p><b>CHA:</b> <%=character.abilityScores[0].charisma%> <span>( <i><%=Math.floor((character.abilityScores[0].charisma-10)/2)%></i> )</span></p>
         </div>
         
     <% } else { %>
@@ -73,10 +77,10 @@
 <section class="profile">
     <h3>Profile</h3>
     <div>
-        <p><b>Characteristics</b></p>
+        <p><b><u>Characteristics</u></b></p>
         <p><%=character.characteristics%></p>
         <br>
-        <p><b>Background</b></p>
+        <p><b><u>Background</u></b></p>
         <p class="lastElement"><%=character.background%></p>
     </div>
 </section>
@@ -97,11 +101,15 @@
                 <tbody>
                     <tr class="equipmentTable">
                         <td class='equipmentData'><%=e.name%></td>
-                        <td class='equipmentData'><%=e.cost%></td>
+                        <td class='equipmentData'><%=e.cost%> <%=e.currency%></td>
                         <td class='equipmentData'><%=e.weight%></td>
                         <td class='equipmentData'>
                             <form action="/characters/<%=character._id%>/equipment/<%=e._id%>?_method=DELETE" method="POST">
-                                <button type="submit" class="delete">
+                                <button type="submit" class="delete" 
+                                <%if (!user || user._id.toString() != character.userId.toString()) {%>
+                                    hidden disabled
+                                <%} %>
+                                >
                                     X
                                 </button>                        
                             </form>
