@@ -4,26 +4,26 @@ A _Dungeons & Dragons_ character builder. Build and save _D&D 5e_ (PHB) characte
 
 ## Screenshots
 <p float="left">
-    <img src="public/images/screenshots/landing.png" width="45%" alt="Landing page">
-    <img src="public/images/screenshots/index.png" width="45%" alt="Character index">
+    <img src="https://raw.githubusercontent.com/cjc027/Character-Builder/main/public/images/screenshots/landing.png" width="45%" alt="Landing page">
+    <img src="https://raw.githubusercontent.com/cjc027/Character-Builder/main/public/images/screenshots/index.png" width="45%" alt="Character index">
 </p>
 <p float="left">
-    <img src="public/images/screenshots/new.png" width="45%" alt="New character">
-    <img src="public/images/screenshots/show.png" width="45%" alt="Show character">
+    <img src="https://raw.githubusercontent.com/cjc027/Character-Builder/main/public/images/screenshots/new.png" width="45%" alt="New character">
+    <img src="https://raw.githubusercontent.com/cjc027/Character-Builder/main/public/images/screenshots/show.png" width="45%" alt="Show character">
 </p>
 
 ## Technologies Used
-Express.js, Node.js, MongoDB, HTML, CSS, and Javascript
+Express.js, Node.js, MongoDB, EJS, CSS, and Javascript
 
 ## Getting Started
-
-[Link to deployed app](https://github.com/cjc027/Character-Builder) | [Link to Trello board](https://trello.com/b/NqLe2aUY/sei-project-2)
+### [Heroku App](https://character-builder-sei.herokuapp.com/) | [Trello Board](https://trello.com/b/NqLe2aUY/sei-project-2)
 
 ## Next Steps
-- Let users select skills based on a character's class 
+- Let users select skills based on their character's class 
 - If a character is a spellcaster, let the user add spells and spell slots
 - Let the user upload their own character portraits
 - Implement features for higher level chracters (e.g. subclasses, proficiency bonus)
+- Implement features for homebrew characters
 
 ## Attributions
 

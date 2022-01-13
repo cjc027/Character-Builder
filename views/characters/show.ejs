@@ -21,7 +21,11 @@
 <%} %>
 
 <section class="profile">
-    <img class="profileImg" src="/images/portraits/<%=character.portrait%>.png" onclick="window.location='/characters/<%=character._id%>/portrait'" style="cursor: pointer;">
+    <%if (user && (user._id.toString() === character.userId.toString())) {%>
+        <img class="profileImg" src="/images/portraits/<%=character.portrait%>.png" onclick="window.location='/characters/<%=character._id%>/portrait'" style="cursor: pointer;">
+    <%} else { %>
+        <img class="profileImg" src="/images/portraits/<%=character.portrait%>.png">
+    <% } %>
     <table class="profileText">
         <tr>
             <td><b>Name:</b></td>

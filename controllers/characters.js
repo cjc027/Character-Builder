@@ -65,6 +65,7 @@ function create(req, res){
 
 function show(req, res){
     Character.findById(req.params.id, function(err, characterDoc){
+        if (err || !characterDoc) return res.redirect('/characters');
         res.render('characters/show', {
             character: characterDoc,
             title: characterDoc.name

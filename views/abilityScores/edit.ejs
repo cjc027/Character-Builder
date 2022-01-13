@@ -49,24 +49,49 @@
 
     <br>
 
-    <form class="new-form" action='/characters/<%=character._id%>/abilityScores?_method=PUT' method="POST">
+    <form class="new-form num-label" action='/characters/<%=character._id%>/abilityScores?_method=PUT' method="POST">
+        <!-- <input type="number" name="strength" min="3" value="<%=abilityPlaceholder.strength%>" required> -->
         <label>Strength:</label>
-        <input type="number" name="strength" min="3" value="<%=abilityPlaceholder.strength%>" required>
-        <!-- <div class='num-input'>
-            <button></button>
-            <input type="number" name="strength" min="3" value="abilityPlaceholder.strength" required>
-            <button class='plus'></button>
-        </div> -->
+        <div class='num-input'>
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" type="button"></button>
+            <input type="number" name="strength" min="3" value="<%=abilityPlaceholder.strength%>" required>
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" type="button" class='plus'></button>
+        </div>
+
         <label>Dexterity:</label>
-        <input type="number" name="dexterity" min="3" value="<%=abilityPlaceholder.dexterity%>" required>
+        <div class='num-input'>
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" type="button"></button>
+            <input type="number" name="dexterity" min="3" value="<%=abilityPlaceholder.dexterity%>" required>
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" type="button" class='plus'></button>
+        </div>
+
         <label>Constitution:</label>
-        <input type="number" name="constitution" min="3" value="<%=abilityPlaceholder.constitution%>" required>
+        <div class='num-input'>
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" type="button"></button>
+            <input type="number" name="constitution" min="3" value="<%=abilityPlaceholder.constitution%>" required>
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" type="button" class='plus'></button>
+        </div>
+
         <label>Intelligence:</label>
-        <input type="number" name="intelligence" min="3" value="<%=abilityPlaceholder.intelligence%>" required>
+        <div class='num-input'>
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" type="button"></button>
+            <input type="number" name="intelligence" min="3" value="<%=abilityPlaceholder.intelligence%>" required>
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" type="button" class='plus'></button>
+        </div>
+        
         <label>Wisdom:</label>
-        <input type="number" name="wisdom" min="3" value="<%=abilityPlaceholder.wisdom%>" required>
+        <div class='num-input'>
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" type="button"></button>
+            <input type="number" name="wisdom" min="3" value="<%=abilityPlaceholder.wisdom%>" required>
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" type="button" class='plus'></button>
+        </div>
+
         <label>Charisma:</label>
-        <input type="number" name="charisma" min="3" value="<%=abilityPlaceholder.charisma%>" required>
+        <div class='num-input'>
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" type="button"></button>
+            <input type="number" name="charisma" min="3" value="<%=abilityPlaceholder.charisma%>" required>
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" type="button" class='plus'></button>
+        </div>
         <input type="submit" value="Update Ability Scores">
     </form>
 </div>
