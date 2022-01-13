@@ -1,5 +1,58 @@
 <%- include('../partials/header') %>
 
+<div id="portraitSelect">
+    <form action="/characters/<%=character._id%>/portrait?_method=PUT" method="POST">
+        <label>
+            <input type="radio" name="portrait" value="default" required>
+            <img src="/images/portraits/default.png">
+        </label>
+        <label>
+            <input type="radio" name="portrait" value="humanoid1">
+            <img src="/images/portraits/humanoid1.png">
+        </label>
+        <label>
+            <input type="radio" name="portrait" value="humanoid2">
+            <img src="/images/portraits/humanoid2.png">
+        </label>
+        <label>
+            <input type="radio" name="portrait" value="humanoid3">
+            <img src="/images/portraits/humanoid3.png">
+        </label>
+        <label>
+            <input type="radio" name="portrait" value="humanoid4">
+            <img src="/images/portraits/humanoid4.png">
+        </label>
+        <label>
+            <input type="radio" name="portrait" value="humanoid5">
+            <img src="/images/portraits/humanoid5.png">
+        </label>
+        <label>
+            <input type="radio" name="portrait" value="humanoid6">
+            <img src="/images/portraits/humanoid6.png">
+        </label>
+        <label>
+            <input type="radio" name="portrait" value="dwarf1">
+            <img src="/images/portraits/dwarf1.png">
+        </label>
+        <label>
+            <input type="radio" name="portrait" value="dwarf2">
+            <img src="/images/portraits/dwarf2.png">
+        </label>
+        <label>
+            <input type="radio" name="portrait" value="elf1">
+            <img src="/images/portraits/elf1.png">
+        </label>
+        <label>
+            <input type="radio" name="portrait" value="elf2">
+            <img src="/images/portraits/elf2.png">
+        </label>
+        <label>
+            <input type="radio" name="portrait" value="dragonborn">
+            <img src="/images/portraits/dragonborn.png">
+        </label>
 
+        <input type="submit" value="Select Portrait">
+    </form>
+</div>
 
 <%- include('../partials/footer') %>

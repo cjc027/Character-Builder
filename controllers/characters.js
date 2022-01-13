@@ -9,7 +9,8 @@ module.exports = {
     delete: deleteCharacter,
     edit,
     update,
-    editPortrait
+    editPortrait,
+    updatePortrait
 };
 
 function index(req, res){
@@ -133,3 +134,16 @@ function editPortrait(req, res){
         });
     });
 };
+
+function updatePortrait(req, res){
+
+    Character.findOne({_id: req.params.id, userId: req.user._id}, function(err, characterDoc){
+        if (err || !characterDoc) return res.redirect(`/characters/${req.params.id}`);
+
+        characterDoc.portrait = req.body.portrait;
+        characterDoc.save(function(err){
+            res.redirect(`/characters/${req.params.id}`);
+        });
+    });
+
+}

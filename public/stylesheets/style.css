@@ -67,6 +67,53 @@ main > div {
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
 
+#portraitSelect {
+  width: 400px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#portraitSelect > form {
+  grid-column: span 2;
+}
+
+#portraitSelect > form > label > input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+#portraitSelect > form > input[type="submit"] {
+  grid-column: span 2;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  background-color: var(--red);
+  color: white;
+  font-size: 15px;
+  margin-top: 15px;
+  margin-bottom: -15px;
+  padding: 5px;
+}
+
+#portraitSelect > form > label > img {
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+  width: 100px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+#portraitSelect > form > label > input:checked + img {
+  border: 2px solid rgba(0, 0, 0, 0);
+  box-shadow: 0 0 5px white;
+}
+
+
 .landing {
   margin-top: 0;
   text-align: left;
@@ -149,13 +196,6 @@ main > .card {
   margin-left: 7px;
 }
 
-/* .profile > div > p {
-  grid-column: span 3;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: auto;
-} */
-
 .lastElement {
   padding-bottom: 30px;
 }
@@ -188,19 +228,6 @@ tr {
   text-align: end;
 }
 
-/* .abilityTable {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-}
-
-.abilityRow {
-  grid-column: span 3;
-  grid-row: span 1;
-  align-self: center;
-  padding-bottom: 50px;
-} */
-
 .equipmentTable {
   text-align: center;
 }
@@ -214,10 +241,6 @@ thead {
   text-align: center;
   text-decoration: underline;
 }
-
-/* td {
-  padding-top: 3.5px;
-} */
 
 .data {
   padding-left: 5px;
