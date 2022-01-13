@@ -11,6 +11,9 @@ router.delete('/:id', isLoggedIn, charactersCtrl.delete);
 router.get('/:id/edit', isLoggedIn, charactersCtrl.edit);
 router.put('/:id', isLoggedIn, charactersCtrl.update);
 
+router.get('/:id/portrait', isLoggedIn, charactersCtrl.editPortrait);
+// router.get('/:id/portrait', isLoggedIn, charactersCtrl.updatePortrait);
+
 function isLoggedIn(req, res, next) {
     if ( req.isAuthenticated() ) return next();
     res.redirect('/auth/google');

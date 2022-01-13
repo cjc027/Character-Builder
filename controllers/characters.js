@@ -8,7 +8,8 @@ module.exports = {
     show,
     delete: deleteCharacter,
     edit,
-    update
+    update,
+    editPortrait
 };
 
 function index(req, res){
@@ -118,21 +119,17 @@ function update(req, res){
         function(err, characterDoc){
             if (err || !characterDoc) return res.redirect('/characters');
             res.redirect(`/characters/${req.params.id}`);
-        })
+        });
+};
 
-    // if (req.user) {
-    
-    
-        
-    //     Character.updateOne({_id: req.params.id}, updatedCharacter, function(err, characterDoc){
-    //         console.log(characterDoc, "document!");
-    //         res.redirect(`/characters/${req.params.id}`);
-    //     });
+function editPortrait(req, res){
 
+    Character.findOne({_id: req.params.id, userId: req.user._id}, function(err, characterDoc){
+        if (err || !characterDoc) return res.redirect(`/characters/${req.params.id}`);
 
-    // } else {
-    //     res.redirect('/');
-    // }
-
-
-}
+        res.render('characters/portrait', {
+            title: 'Select Portrait',
+            character: characterDoc
+        });
+    });
+};

@@ -4,7 +4,7 @@
 <% if (characters.length > 0) { %>
     <% characters.forEach(function(char){ %>
         <section class='card' onclick="window.location='/characters/<%= char._id %>';" style="cursor: pointer;">
-            <img class="characterImg" src="/images/portraits/default.jpg">
+            <img class="characterImg" src="/images/portraits/<%=char.portrait%>.png">
             <table class="characterText">
                 <tr>
                     <td><b>Name:</b></td>
