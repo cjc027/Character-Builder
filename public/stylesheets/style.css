@@ -309,24 +309,70 @@ main > div > .nav {
   grid-template-columns: 1fr 1fr;
 }
 
-.new-form > textarea {
+.new-form > .textArea, textarea {
   grid-column: span 2;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.new-form > textarea {
   width: 70%;
   height: 100px;
   resize: vertical;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .new-form > input, select {
   width: 80%;
 }
 
-.new-form > .textArea {
-  grid-column: span 2;
-  margin-left: auto;
-  margin-right: auto;
+input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
 }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.num-input {
+  display: inline-flex;
+}
+
+.num-input > button {
+  outline:none;
+  -webkit-appearance: none;
+  background-color: var(--red);
+  border: 1px solid rgba(0, 0, 0, 0.425);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  width: 20px;
+  cursor: pointer;
+  margin: 0;
+  position: relative;
+}
+
+.num-input > button:before,
+.num-input > button:after {
+  display: inline-block;
+  position: absolute;
+  content: '';
+  width: .5rem;
+  height: 2px;
+  background-color: #fcfcfc;
+  transform: translate(-50%, -50%);
+}
+.numb-input > button.plus:after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* .new-form > input[type="number"] {
+  padding-left: 5%;
+} */
 
 .new-form > input[type="submit"] {
   grid-column: span 2;

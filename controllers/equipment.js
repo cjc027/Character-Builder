@@ -18,7 +18,7 @@ function newEquipment(req, res){
 };
 
 function create(req, res){
-    // if (!req.user) return res.redirect(`/characters/${req.params.id}`);
+    console.log(req.body)
 
     req.body.cost = parseInt(req.body.cost);
     Character.findById(req.params.id, function(err, characterDoc){

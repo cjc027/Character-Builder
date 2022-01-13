@@ -52,6 +52,11 @@
     <form class="new-form" action='/characters/<%=character._id%>/abilityScores?_method=PUT' method="POST">
         <label>Strength:</label>
         <input type="number" name="strength" min="3" value="<%=abilityPlaceholder.strength%>" required>
+        <!-- <div class='num-input'>
+            <button></button>
+            <input type="number" name="strength" min="3" value="abilityPlaceholder.strength" required>
+            <button class='plus'></button>
+        </div> -->
         <label>Dexterity:</label>
         <input type="number" name="dexterity" min="3" value="<%=abilityPlaceholder.dexterity%>" required>
         <label>Constitution:</label>
