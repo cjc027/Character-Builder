@@ -21,6 +21,7 @@ const equipmentSchema = new Schema({
 const characterSchema = new Schema({
     name: {type: String, required: true},
     userId: {type: Schema.Types.ObjectId, ref: 'User'},
+    portrait: {type: String, default: 'default'},
     race: {
         type: String, 
         required: true,

@@ -75,8 +75,6 @@ main > div {
 
 .landing > p > a {
   color: #e0695a;
-  /* border-bottom: 2px dotted var(--gold-crayola);
-  padding-bottom: 1px; */
   text-decoration: none;
 }
 
