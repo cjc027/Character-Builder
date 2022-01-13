@@ -1,6 +1,6 @@
 # Character Builder
 
-A _Dungeons & Dragons_ character builder. Build and save basic _D&D 5e_ (PHB) characters. Does not currently support homebrew characters or rules.
+A _Dungeons & Dragons_ character builder. Build and save _D&D 5e_ (PHB) characters. The app does not currently support homebrew characters or rules.
 
 ## Screenshots
 <p float="left">
