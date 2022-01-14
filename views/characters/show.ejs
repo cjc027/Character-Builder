@@ -12,8 +12,8 @@
 
     <a href="/characters/<%=character._id%>/equipment/new" class="button">Add Equipment</a>
 
-    <form action="/characters/<%= character._id %>?_method=DELETE" class="button" method="POST">
-        <button type="submit" class="delete" onclick="return confirm('Are you sure?')">
+    <form action="/characters/<%= character._id %>?_method=DELETE" class="button" method="POST" style="cursor: pointer;">
+        <button type="submit" class="delete" style="cursor: pointer;" onclick="return confirm('Are you sure?')">
             Delete Character
         </button>
     </form>

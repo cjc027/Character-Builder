@@ -80,7 +80,8 @@ function deleteCharacter(req, res){
 };
 
 function edit(req, res){
-    Character.findById(req.params.id, function(err, characterDoc){
+    Character.findOne({_id: req.params.id, userId: req.user._id}, function(err, characterDoc){
+        if (err || !characterDoc) return res.redirect(`/characters/${req.params.id}`);
         res.render('characters/edit', {
             character: characterDoc,
             title: 'Edit Character',

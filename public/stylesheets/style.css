@@ -409,7 +409,7 @@ main > div > .nav {
   padding: 5px;
 }
 
-.button {
+.button, #dropdown {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -462,12 +462,12 @@ main > div > .nav {
 }
 
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 13px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #555555;
-  border-radius: 7px;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -484,4 +484,53 @@ main > div > .nav {
 
 ::-webkit-scrollbar-corner {
   background-color: rgba(255, 217, 0, 0)700
+}
+
+@media only screen and (max-width: 1400px) {
+  body > main {
+    padding: 20px 0;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    visibility: hidden;
+  }
+
+  body {
+    background-color: var(--gold-crayola);
+  }
+
+  main .profile {
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 880px) {
+  main .card {
+    grid-column: span 4;
+  }
+
+  body > main {
+    row-gap: 25px;
+    padding: 10px;
+  }
+
+  aside {
+    display: inline-block;
+  }
+
+  main .button {
+    grid-column: span 4;
+    width: 400px;
+    height: 25px;
+    margin-bottom: -30px;
+  }
+
+  main .profile {
+    grid-column: span 4;
+    width: 400px;
+    place-self: center;
+  }
 }
