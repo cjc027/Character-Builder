@@ -21,9 +21,8 @@ Express.js, Node.js, MongoDB, EJS, CSS, and Javascript
 ## Next Steps
 - Let users select skills based on their character's class 
 - If a character is a spellcaster, let the user add spells and spell slots
-- Let the user upload their own character portraits
-- Implement features for higher level chracters (e.g. subclasses, proficiency bonus)
-- Implement features for homebrew characters
+- Implement features for higher level chracters
+- Use responsive or mobile-first design
 
 ## Attributions
 
